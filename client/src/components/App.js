@@ -1,11 +1,28 @@
 import '../App.css';
+import { Route, Switch } from "react-router-dom";
+import ActivityContainer from './ActivityCard';
+import NavBar from './NavBar';
+import SignIn from "./SignIn";
+import Header from './Header';
+import Profile from './Profile';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        Test Content
-      </header>
+      <Header /> 
+      <NavBar />
+      <Switch>
+        <Route exact path = "/">
+          <SignIn/>
+        </Route>
+        <Route exact path = "/profile">
+          <Profile />
+        </Route>
+        <Route exact path = "/home">
+          <ActivityContainer />
+        </Route>
+      </Switch>  
     </div>
   );
 }
