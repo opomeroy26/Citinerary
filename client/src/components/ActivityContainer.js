@@ -7,13 +7,12 @@ function ActivityContainer({ activities }) {
     <ActivityCard 
       key={activity.id}
       activity={activity}
+      category={activity.categories}
     />
   ))
   
-  activities.map(a => console.log(a))
-
   return (
-    <div>{mappedActivities}TESTING CONTAINER</div>
+    <div className="cards">{mappedActivities}</div>
   )
 }
 
