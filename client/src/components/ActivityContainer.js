@@ -3,16 +3,16 @@ import ActivityCard from '/ActivityCard'
 
 function ActivityContainer({ activities }) {
   
-  // const mappedActivities = activities.map(activity => (
-  //   <ActivityCard 
-  //     key={activity.id}
-  //     activity={activity}
-  //   />
-  // ))
+  const mappedActivities = activities.map(activity => (
+    <ActivityCard 
+      key={activity.id}
+      activity={activity}
+    />
+  ))
   
-  // activities.map(a => console.log(a))
+  activities.map(a => console.log(a))
   return (
-    <div></div>
+    <div>{mappedActivities}</div>
   )
 }
 

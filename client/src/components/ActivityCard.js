@@ -10,12 +10,12 @@ import Typography from '@mui/material/Typography';
 
 
 
-function ActivityCard() {
+function ActivityCard({ activites }) {
 
 
 
   return (
-    <div></div>
+    <div>Testing</div>
   );
 }
 
