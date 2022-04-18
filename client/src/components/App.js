@@ -50,7 +50,8 @@ function App() {
         <Route exact path = "/profile">
           <Profile />
         </Route>
-        <Route exact path = "/home">
+        <Route exact path = "/home"> 
+        {/* exact path = "/" ? */}
           <ActivityContainer activities={activities} />
         </Route>
       </Switch>  
