@@ -1,7 +1,7 @@
 import '../App.css';
 import { Route, Switch } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import ActivityContainer from './ActivityCard';
+import ActivityContainer from './ActivityContainer';
 import NavBar from './NavBar';
 import SignIn from "./SignIn";
 import SignUp from './SignUp';
@@ -42,8 +42,8 @@ function App() {
       <Switch>
         {/* Will need to comment below SignIn out and uncomment the if statement above once auth is finished */}
         {/* <Route exact path = "/"> 
-          <SignIn onSignIn={setUser}/>
-        </Route> */}
+          <SignIn onSignIn={setUser}/> */}
+        {/* </Route> */}
         <Route exact path = "/signup">
           <SignUp/>
         </Route>

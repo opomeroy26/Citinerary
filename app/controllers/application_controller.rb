@@ -3,7 +3,8 @@ class ApplicationController < ActionController::API
 
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
-  # before_action :authorize //UNCOMMENT THIS TO STAY LOGGED IN DURING REFRESH
+  before_action :authorize 
+  # //UNCOMMENT THIS TO STAY LOGGED IN DURING REFRESH
 
   private 
 
