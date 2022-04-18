@@ -1,4 +1,6 @@
 import React from 'react'
+import {NavLink} from "react-router-dom"
+
 
 function NavBar({user, setUser}) {
 
@@ -15,6 +17,7 @@ function NavBar({user, setUser}) {
     <div>
     <h2>NavBar</h2>
     <button onClick={handleLogoutClick}> Logout </button>
+    <NavLink to="/profile">Profile</NavLink>
     </div>
   )
 }

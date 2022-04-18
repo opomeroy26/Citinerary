@@ -48,7 +48,7 @@ function App() {
           <SignUp/>
         </Route>
         <Route exact path = "/profile">
-          <Profile />
+          <Profile user = {user}/>
         </Route>
         <Route exact path = "/home"> 
         {/* exact path = "/" ? */}
