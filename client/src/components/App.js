@@ -1,5 +1,6 @@
 import '../App.css';
 import { Route, Switch } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import ActivityContainer from './ActivityCard';
 import NavBar from './NavBar';
 import SignIn from "./SignIn";
@@ -9,14 +10,40 @@ import Profile from './Profile';
 
 
 function App() {
+
+  // State
+  const [activities, setActivities] = useState([])
+  const [user, setUser] = useState(null)
+
+
+  // Fetches
+  useEffect(() => {
+    fetch('http://localhost:3000/activities')
+    .then(response => response.json())
+    .then(activities => setActivities(activities))
+    // .then(console.log)
+  }, [])
+
+  useEffect(() => {
+    // auto-login
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user))
+      }
+    });
+  }, []);
+
+  if (!user) return <SignIn onSignIn={setUser} /> 
+
   return (
     <div className="App">
       <Header /> 
       <NavBar />
       <Switch>
-        <Route exact path = "/">
-          <SignIn/>
-        </Route>
+        {/* Will need to comment below SignIn out and uncomment the if statement above once auth is finished */}
+        {/* <Route exact path = "/"> 
+          <SignIn onSignIn={setUser}/>
+        </Route> */}
         <Route exact path = "/signup">
           <SignUp/>
         </Route>
@@ -24,7 +51,7 @@ function App() {
           <Profile />
         </Route>
         <Route exact path = "/home">
-          <ActivityContainer />
+          <ActivityContainer activities={activities} />
         </Route>
       </Switch>  
     </div>

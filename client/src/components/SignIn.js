@@ -1,4 +1,5 @@
-import * as React from 'react';
+// import * as React from 'react';
+import React, {useState} from "react";
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -28,14 +29,33 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-export default function SignInSide() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+export default function SignIn( {onSignIn} ) {
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
+  const [errors, setErrors] = useState([]);
+
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    // const data = new FormData(e.currentTarget);
+    // console.log({
+      // const usernameValue = data.get('username');
+      // const passwordValue = data.get('password');
+    // });
+    // console.log ("Testing", username, password )
+    fetch("/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username, password }),
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then((user) => onSignIn(user));
+      } else {
+        r.json().then((err) => setErrors(errors));
+      }
+    })
   };
 
   return (
@@ -77,10 +97,12 @@ export default function SignInSide() {
                 margin="normal"
                 required
                 fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
+                id="uesrname"
+                label="Username"
+                name="username"
+                value = {username}
+                onChange ={(e) => setUsername(e.target.value)}
+                autoComplete="username"
                 autoFocus
               />
               <TextField
@@ -91,6 +113,8 @@ export default function SignInSide() {
                 label="Password"
                 type="password"
                 id="password"
+                value = {password}
+                onChange = {(e) => setPassword(e.target.value)}
                 autoComplete="current-password"
               />
               <FormControlLabel
