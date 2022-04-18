@@ -44,7 +44,7 @@ function App() {
         {/* <Route exact path = "/"> 
           <SignIn onSignIn={setUser}/> */}
         {/* </Route> */}
-        <Route exact path = "/signup">
+        <Route exact path = "/signup#">
           <SignUp/>
         </Route>
         <Route exact path = "/profile">
