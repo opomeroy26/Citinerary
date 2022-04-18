@@ -5,7 +5,12 @@ class ActivitiesController < ApplicationController
 
     # GET /activities
     def index
-        render json: Activity.all
+        if (params[:name])
+            @activities =  Activity.where({name: params[:name]})
+        else
+            @activities = Activity.all
+        end
+        render json: @activities
     end
 
     # GET /activites/:id
