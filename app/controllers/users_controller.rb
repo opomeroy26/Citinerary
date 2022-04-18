@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    skip_before_action :authorize, only: [:create, :show]
+    skip_before_action :authorize, only: [:create]
 
     #Gets list of Users
     def index 
