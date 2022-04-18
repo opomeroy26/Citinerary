@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
-    # skip_before_action :authorize, only: :create //UNCOMMENT THIS TO STAY LOGGED IN
+    skip_before_action :authorize, only: :create 
+    # //UNCOMMENT THIS TO STAY LOGGED IN
 
     #Handles Login
     def create 
