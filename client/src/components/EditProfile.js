@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import { useHistory } from "react-router-dom";
+
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
@@ -13,8 +15,10 @@ function EditProfile({user, onUpdateUser}) {
     const [age, setAge] = useState('')
     const [profile_picture, setProfilePic] = useState("")
 
-    function handleSubmit(event, updatedUser){
+
+    function handleSubmit(event){
         // event.preventDefault();
+        // commented it out it pushes to profile page but re-freshes page briefly
         //Take out preventDefault to push user directly back to home page after edit
         console.log(username, password, age, profile_picture)
         fetch(`http://localhost:3000/users/${user.id}`, {
