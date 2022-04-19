@@ -43,6 +43,11 @@ function App() {
 
   if (!user) return <SignIn onSignIn={setUser} /> 
 
+  function handleUpdateUser(updatedUser) {
+    console.log("updating user", updatedUser)
+    // setUser(updatedUser)
+  }
+
 
   return (
     <div className="App">
@@ -57,7 +62,9 @@ function App() {
           <SignUp/>
         </Route>
         <Route exact path = "/profile">
-          <Profile user = {user}/>
+          <Profile 
+            user = {user}
+            onUpdateUser = {handleUpdateUser}/>
         </Route>
         <Route exact path = "/home"> 
         {/* exact path = "/" ? */}

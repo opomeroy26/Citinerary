@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import Button from '@mui/material/Button';
 import EditProfile from './EditProfile';
 
-function Profile({user}) {
+function Profile({user, onUpdateUser}) {
   const [showForm, setShowForm] = useState(true)
   
   return (
@@ -19,7 +19,7 @@ function Profile({user}) {
         </div>
       ) : (
         <div>
-        <EditProfile user = {user}/>
+        <EditProfile user = {user} onUpdateUser= {onUpdateUser}/>
         <Button onClick={()=> setShowForm(true)}>
           Cancel Changes
         </Button>
