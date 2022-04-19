@@ -30,3 +30,9 @@ code {
 .spacing {
   padding: 10px;
 }
+
+/* LINK */
+a {
+  text-decoration: none;
+  color: black;
+}
