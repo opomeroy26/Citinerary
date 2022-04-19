@@ -7,6 +7,8 @@ import SignIn from "./SignIn";
 import SignUp from './SignUp';
 import Header from './Header';
 import Profile from './Profile';
+import AddActivity from './AddActivity';
+import MyActivities from './MyActivities';
 
 
 function App() {
@@ -104,6 +106,12 @@ const sortedActivities = activities.sort((a1, a2) => {
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
           />
+        </Route>
+        <Route exact path = "/myActivities">
+          <MyActivities />
+        </Route>
+        <Route exact path = "/addActivity">
+          <AddActivity />
         </Route>
       </Switch>  
     </div>
