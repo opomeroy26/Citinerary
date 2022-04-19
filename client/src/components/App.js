@@ -56,6 +56,7 @@ function App() {
 
   if (!user) return <SignIn onSignIn={setUser} /> 
 
+
 // Sort
 const sortedActivities = activities.sort((a1, a2) => {
   if (sortBy == 'default'){
@@ -68,6 +69,13 @@ const sortedActivities = activities.sort((a1, a2) => {
       return a1.duration.localeCompare(a2.duration)
     }
 })
+
+  function handleUpdateUser(updatedUser) {
+    console.log("updating user", updatedUser)
+    setUser(updatedUser)
+  }
+
+
 
   return (
     <div className="App">
@@ -82,7 +90,9 @@ const sortedActivities = activities.sort((a1, a2) => {
           <SignUp/>
         </Route>
         <Route exact path = "/profile">
-          <Profile user = {user}/>
+          <Profile 
+            user = {user}
+            onUpdateUser = {handleUpdateUser}/>
         </Route>
         <Route exact path = "/home"> 
         {/* exact path = "/" ? */}
