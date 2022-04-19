@@ -19,7 +19,7 @@ function Profile({user, onUpdateUser}) {
         </div>
       ) : (
         <div>
-        <EditProfile user = {user} onUpdateUser= {onUpdateUser}/>
+        <EditProfile user = {user} onUpdateUser= {onUpdateUser} setShowFormn ={setShowForm}/>
         <Button onClick={()=> setShowForm(true)}>
           Cancel Changes
         </Button>
