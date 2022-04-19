@@ -20,7 +20,7 @@ function App() {
   const [sortBy, setSortBy] = useState('default');
   const [filterBy, setFilterBy] = useState('default');
 
-  // const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState([]);
 
   // Fetches
 
