@@ -45,7 +45,7 @@ function App() {
 
   function handleUpdateUser(updatedUser) {
     console.log("updating user", updatedUser)
-    // setUser(updatedUser)
+    setUser(updatedUser)
   }
 
 
