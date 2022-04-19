@@ -1,5 +1,6 @@
 
 import React from 'react'
+import {NavLink} from "react-router-dom"
 
 // Material UI/CSS Imports
 import Typography from '@mui/material/Typography';
@@ -9,7 +10,7 @@ import Link from '@mui/material/Link';
 
 
 function NavBar({ user, setUser }) {
-
+  
   function handleLogoutClick() {
     fetch ("/logout", {method: "DELETE"}).then((r) => {
       if (r.ok) {
@@ -17,7 +18,6 @@ function NavBar({ user, setUser }) {
       }
     });
   }
-
   return (
     <Breadcrumbs aria-label="breadcrumb">
       <Typography color="text.primary">Citinerary</Typography>

@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+    skip_before_action :authorize, only: [:create]
+   
 
     #Gets list of Users
     def index 
@@ -18,7 +20,20 @@ class UsersController < ApplicationController
         render json: @current_user
     end
 
+    #PATCH /users/:id
+    def update 
+        user = User.find_by(id: params[:id])
+        if user 
+            user.update!(user_params)
+            render json: user 
+        else 
+            render json: {error: "User not found"}, status: :not_found
+        end
+    end
+
+    private 
+
     def user_params 
-        params.permit(:username, :age, :password, :profile_picture) #password_confirmation?
+        params.permit(:username, :password, :age, :profile_picture) #password_confirmation?
     end
 end

@@ -53,16 +53,15 @@ function App() {
         {/* <Route exact path = "/"> 
           <SignIn onSignIn={setUser}/> */}
         {/* </Route> */}
-        <Route exact path = "/signup">
+        <Route exact path = "/signup#">
           <SignUp/>
         </Route>
         <Route exact path = "/profile">
-          <Profile />
+          <Profile user = {user}/>
         </Route>
-        <Route exact path = "/home">
-          <ActivityContainer 
-          activities={activities} 
-          />
+        <Route exact path = "/home"> 
+        {/* exact path = "/" ? */}
+          <ActivityContainer activities={activities} />
         </Route>
       </Switch>  
     </div>
