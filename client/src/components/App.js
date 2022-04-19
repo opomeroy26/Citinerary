@@ -47,7 +47,7 @@ function App() {
   return (
     <div className="App">
       <Header /> 
-      <NavBar />
+      <NavBar user ={user} setUser={setUser}/>
       <Switch>
         {/* Will need to comment below SignIn out and uncomment the if statement above once auth is finished */}
         {/* <Route exact path = "/"> 
@@ -62,7 +62,6 @@ function App() {
         <Route exact path = "/home">
           <ActivityContainer 
           activities={activities} 
-          searchTerm={searchTerm}
           />
         </Route>
       </Switch>  

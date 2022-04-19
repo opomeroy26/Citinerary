@@ -7,7 +7,17 @@ import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
 
 
-function NavBar() {
+
+function NavBar({ user, setUser }) {
+
+  function handleLogoutClick() {
+    fetch ("/logout", {method: "DELETE"}).then((r) => {
+      if (r.ok) {
+        setUser(null);
+      }
+    });
+  }
+
   return (
     <Breadcrumbs aria-label="breadcrumb">
       <Typography color="text.primary">Citinerary</Typography>
@@ -31,6 +41,7 @@ function NavBar() {
         underline="hover"
         href="/addActivity"
       >Add Activity</Link>
+      <button onClick={handleLogoutClick}> Logout </button>
 </Breadcrumbs>
   )
 }
