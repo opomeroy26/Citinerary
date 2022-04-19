@@ -18,6 +18,7 @@ function App() {
   const [user, setUser] = useState(null)
   const [searchTerm, setSearchTerm] = useState("")
   const [sortBy, setSortBy] = useState('default')
+  const [filterBy, setFilterBy] = useState("");
 
   // Fetches
 
@@ -54,7 +55,8 @@ function App() {
 
 
 // Sort
-const sortedActivities = activities.sort((a1, a2) => {
+const sortedActivities = activities
+.sort((a1, a2) => {
   if (sortBy === 'default'){
     return a1.id - a2.id
     } else if (sortBy === 'name') {
@@ -63,6 +65,10 @@ const sortedActivities = activities.sort((a1, a2) => {
       return a1.duration - a2.duration
     }
 })
+
+// const filteredActivities = sortedActivities.filter(
+//   (activity) => activity.location === filterBy
+// )
 
   function handleUpdateUser(updatedUser) {
     console.log("updating user", updatedUser)
@@ -97,6 +103,8 @@ const sortedActivities = activities.sort((a1, a2) => {
           handleSearch={handleSearch}
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
+          filterBy={filterBy}
+          setFilterBy={setFilterBy}
           />
         </Route>
         <Route exact path = "/myActivities">

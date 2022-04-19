@@ -1,7 +1,16 @@
 import React from 'react'
 import ActivityCard from './ActivityCard'
 
-function ActivityContainer({ activities, searchTerm, handleSearch, sortBy, setSortBy, setSearchTerm }) {
+function ActivityContainer(
+  { activities, 
+    searchTerm, 
+    handleSearch, 
+    sortBy, 
+    setSortBy, 
+    setSearchTerm, 
+    filterBy, 
+    setFilterBy
+  }) {
   
   const mappedActivities = activities.map(activity => (
     <ActivityCard 
@@ -10,6 +19,10 @@ function ActivityContainer({ activities, searchTerm, handleSearch, sortBy, setSo
       category={activity.categories}
     />
   ))
+
+  function handleFilterBy(e){
+    setFilterBy(e.target.value)
+  }
   
   return (
     <div>
@@ -24,6 +37,15 @@ function ActivityContainer({ activities, searchTerm, handleSearch, sortBy, setSo
         <option value="duration">Duration</option>
       </select>
 
+      {/* Select Location: 
+      <label>
+        <strong>Filter:</strong>
+        <select onChange={handleFilterBy} value={filterBy}>
+          <option value="Tech">Tech</option>
+          <option value="Sportswear">Sportswear</option>
+          <option value="Finance">Finance</option>
+        </select>
+      </label> */}
 
       <form onSubmit={(e) => handleSearch(e, searchTerm)}> 
         <label>Search By Activity Name: </label>
