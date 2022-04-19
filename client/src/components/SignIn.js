@@ -56,7 +56,7 @@ export default function SignIn( {onSignIn} ) {
       if (r.ok) {
         r.json().then((user) => onSignIn(user));
       } else {
-        r.json().then((err) => setErrors(errors));
+        r.json().then((err) => window.alert(err.errors));
       }
     })
   };

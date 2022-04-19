@@ -14,11 +14,13 @@ import MyActivities from './MyActivities';
 function App() {
 
   // State
-  const [activities, setActivities] = useState([])
-  const [user, setUser] = useState(null)
-  const [searchTerm, setSearchTerm] = useState("")
-  const [sortBy, setSortBy] = useState('default')
+  const [activities, setActivities] = useState([]);
+  const [user, setUser] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [sortBy, setSortBy] = useState('default');
   const [filterBy, setFilterBy] = useState('default');
+
+  // const [errors, setErrors] = useState([]);
 
   // Fetches
 
@@ -47,6 +49,8 @@ function App() {
     fetch("/me").then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user))
+      } else {
+        r.json().then(err => window.alert(err.errors))
       }
     });
   }, []);
