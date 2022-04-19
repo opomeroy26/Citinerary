@@ -7,6 +7,8 @@ import SignIn from "./SignIn";
 import SignUp from './SignUp';
 import Header from './Header';
 import Profile from './Profile';
+import AddActivity from './AddActivity';
+import MyActivities from './MyActivities';
 
 
 function App() {
@@ -69,6 +71,12 @@ function App() {
         <Route exact path = "/home"> 
         {/* exact path = "/" ? */}
           <ActivityContainer activities={activities} />
+        </Route>
+        <Route exact path = "/myActivities">
+          <MyActivities />
+        </Route>
+        <Route exact path = "/addActivity">
+          <AddActivity />
         </Route>
       </Switch>  
     </div>
