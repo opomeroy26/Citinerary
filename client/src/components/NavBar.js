@@ -6,6 +6,9 @@ import {NavLink} from "react-router-dom"
 import Typography from '@mui/material/Typography';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
+import Button from '@mui/material/Button';
+import LogoutIcon from '@mui/icons-material/Logout';
+import IconButton from '@mui/material/IconButton';
 
 
 
@@ -41,7 +44,15 @@ function NavBar({ user, setUser }) {
         underline="hover"
         href="/addActivity"
       >Add Activity</Link>
-      <button onClick={handleLogoutClick}> Logout </button>
+      {/* <button onClick={handleLogoutClick}> Logout </button> */}
+      <IconButton
+      aria-label="logout" 
+      color="secondary"
+      size="small"
+      onClick={handleLogoutClick}
+      >
+        <LogoutIcon />
+      </IconButton>
 </Breadcrumbs>
   )
 }

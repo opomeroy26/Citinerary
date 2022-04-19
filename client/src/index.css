@@ -23,5 +23,10 @@ code {
 }
 
 .card {
-  background-color: #FFA552;
+  background-color: #5F6062;
+  color: white;
+}
+
+.spacing {
+  padding: 10px;
 }

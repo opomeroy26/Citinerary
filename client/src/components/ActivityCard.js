@@ -40,7 +40,10 @@ function ActivityCard({ activity, category }) {
           <br />
           Duration: {activity.duration} minutes
         </Typography>
-        <Typography vatiant="body2">
+        <Typography 
+        sx={{ fontSize: 11 }}
+        variant="body2"
+        >
           {catName}
         </Typography>
         {/* <img src={catImg} ></img> */}
@@ -52,7 +55,7 @@ function ActivityCard({ activity, category }) {
   );
 
   return (
-    <Box sx={{ minWidth: 275, maxWidth:10 }}>
+    <Box className="spacing"  sx={{ minWidth: 275, maxWidth:10 }}>
       <Card variant="outlined">{card}</Card>
     </Box>
   );
