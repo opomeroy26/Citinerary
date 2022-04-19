@@ -19,22 +19,16 @@ function App() {
   const [searchTerm, setSearchTerm] = useState("")
   const [sortBy, setSortBy] = useState('default')
 
-  // Filter/Search URL
-  // const currentUrl = new URLSearchParams(window.location.search)
-  // const searchParam = currentUrl.get('location')
-  
-  // let url = 'http://localhost:3000/activities'
-  // if (searchParam){
-  //   url = `${url}/?name=${searchParam}`
-  // }
-  console.log(user)
   // Fetches
+
+  // Fetch all activities
   useEffect(() => {
     fetch('http://localhost:3000/activities')
     .then(response => response.json())
     .then(activities => setActivities(activities))
   }, [])
 
+  // Fetch searched activities
   function handleSearch(e, searchTerm){
     e.preventDefault()
     fetch('/search', { 
@@ -61,14 +55,12 @@ function App() {
 
 // Sort
 const sortedActivities = activities.sort((a1, a2) => {
-  if (sortBy == 'default'){
+  if (sortBy === 'default'){
     return a1.id - a2.id
-    } else if (sortBy == 'name') {
+    } else if (sortBy === 'name') {
       return a1.name.localeCompare(a2.name)
-    } else if (sortBy == 'location') {
-      return a1.location.city.localeCompare(a2.location.city)
-    } else if (sortBy == 'duration') {
-      return a1.duration.localeCompare(a2.duration)
+    } else {
+      return a1.duration - a2.duration
     }
 })
 

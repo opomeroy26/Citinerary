@@ -11,11 +11,6 @@ function ActivityContainer({ activities, searchTerm, handleSearch, sortBy, setSo
     />
   ))
   
-    // function handleSearchTest(e){
-    //   e.preventDefault()
-    //   handleSearch()
-    // }
-
   return (
     <div>
       {/* <form action="/search" method="POST" */}
@@ -26,7 +21,6 @@ function ActivityContainer({ activities, searchTerm, handleSearch, sortBy, setSo
       >
         <option value="default">Default</option>
         <option value="name">Activity Name</option>
-        <option value="city">City</option>
         <option value="duration">Duration</option>
       </select>
 
