@@ -14,16 +14,24 @@ function App() {
   // State
   const [activities, setActivities] = useState([])
   const [user, setUser] = useState(null)
+  const [searchTerm, setSearchTerm] = useState("")
 
+  // Filter/Search URL
+  const currentUrl = new URLSearchParams(window.location.search)
+  const searchParam = currentUrl.get('location')
+  
+  let url = 'http://localhost:3000/activities'
+  if (searchParam){
+    url = `${url}/?name=${searchParam}`
+  }
 
   // Fetches
   useEffect(() => {
-    fetch('http://localhost:3000/activities')
+    fetch(url)
     .then(response => response.json())
     .then(activities => setActivities(activities))
-    // .then(console.log)
-  }, [])
-
+  }, [url])
+  
   useEffect(() => {
     // auto-login
     fetch("/me").then((r) => {
@@ -34,6 +42,7 @@ function App() {
   }, []);
 
   if (!user) return <SignIn onSignIn={setUser} /> 
+
 
   return (
     <div className="App">

@@ -25,8 +25,8 @@ function ActivityCard({ activity, category }) {
   );
   
   const card = (
-    <React.Fragment>
-      <CardContent>
+    <React.Fragment >
+      <CardContent className='card'>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
         </Typography>
         <Typography variant="h5" component="div">
