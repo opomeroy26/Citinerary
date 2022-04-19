@@ -5,14 +5,21 @@ class ActivitiesController < ApplicationController
 
     # GET /activities
     def index
-        if (params[:name])
-            @activities =  Activity.where({name: params[:name]})
-        else
-            @activities = Activity.all
-        end
-        render json: @activities
+        # if (params[:name])
+        #     @activities =  Activity.where({name: params[:name]})
+        # else
+        #     @activities = Activity.all
+        # end
+        
+        render json: Activity.all
     end
 
+    def search 
+        # activities = @Activity.where("name LIKE ?", "%" + params[:q] + "%")
+        activities =  Activity.where({name: params[:name]})
+        render json: activities
+    end
+    
     # GET /activites/:id
     def show 
         render json: @activity
@@ -27,6 +34,7 @@ class ActivitiesController < ApplicationController
 
     def activity_params
         params.permit(:name, :duration, :description, :user_id, :location_id)
+        # maybe include :search??
     end
 
 end

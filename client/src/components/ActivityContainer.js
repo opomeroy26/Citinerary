@@ -1,7 +1,7 @@
 import React from 'react'
 import ActivityCard from './ActivityCard'
 
-function ActivityContainer({ activities, searchTerm }) {
+function ActivityContainer({ activities, searchTerm, handleSearch, sortBy, setSortBy, setSearchTerm }) {
   
   const mappedActivities = activities.map(activity => (
     <ActivityCard 
@@ -11,16 +11,41 @@ function ActivityContainer({ activities, searchTerm }) {
     />
   ))
   
+    // function handleSearchTest(e){
+    //   e.preventDefault()
+    //   handleSearch()
+    // }
+
   return (
     <div>
-      <form action="/home/" method="GET">
+      {/* <form action="/search" method="POST" */}
+      Sort by: 
+      <select
+      value={sortBy}
+      onChange={(e) => setSortBy(e.target.value)}
+      >
+        <option value="default">Default</option>
+        <option value="name">Activity Name</option>
+        <option value="city">City</option>
+        <option value="duration">Duration</option>
+      </select>
+
+
+      <form onSubmit={(e) => handleSearch(e, searchTerm)}> 
         <label>Search By Activity Name: </label>
-        <input type="text" name="name"></input>
-        <input type="submit" value="Search!"></input>
+        <input 
+        type="text" 
+        name="name"
+        value={searchTerm}
+        onChange={e => setSearchTerm(e.target.value)}
+        ></input>
+<        input type="submit" value="Submit"></input>
       </form>
       <div className="cards">{mappedActivities}</div>
-    </div>
+    </div> 
   )
 }
 
 export default ActivityContainer;
+
+

@@ -15,22 +15,35 @@ function App() {
   const [activities, setActivities] = useState([])
   const [user, setUser] = useState(null)
   const [searchTerm, setSearchTerm] = useState("")
+  const [sortBy, setSortBy] = useState('default')
 
   // Filter/Search URL
-  const currentUrl = new URLSearchParams(window.location.search)
-  const searchParam = currentUrl.get('location')
+  // const currentUrl = new URLSearchParams(window.location.search)
+  // const searchParam = currentUrl.get('location')
   
-  let url = 'http://localhost:3000/activities'
-  if (searchParam){
-    url = `${url}/?name=${searchParam}`
-  }
-
+  // let url = 'http://localhost:3000/activities'
+  // if (searchParam){
+  //   url = `${url}/?name=${searchParam}`
+  // }
+  console.log(user)
   // Fetches
   useEffect(() => {
-    fetch(url)
+    fetch('http://localhost:3000/activities')
     .then(response => response.json())
     .then(activities => setActivities(activities))
-  }, [url])
+  }, [])
+
+  function handleSearch(e, searchTerm){
+    e.preventDefault()
+    fetch('/search', { 
+      method: 'POST', 
+      headers: {
+        'Content-Type': 'application/json', 
+      }, body: JSON.stringify({name: searchTerm}),
+    })
+    .then(response => response.json())
+    .then(activities => setActivities(activities))
+  }
   
   useEffect(() => {
     // auto-login
@@ -43,6 +56,18 @@ function App() {
 
   if (!user) return <SignIn onSignIn={setUser} /> 
 
+// Sort
+const sortedActivities = activities.sort((a1, a2) => {
+  if (sortBy == 'default'){
+    return a1.id - a2.id
+    } else if (sortBy == 'name') {
+      return a1.name.localeCompare(a2.name)
+    } else if (sortBy == 'location') {
+      return a1.location.city.localeCompare(a2.location.city)
+    } else if (sortBy == 'duration') {
+      return a1.duration.localeCompare(a2.duration)
+    }
+})
 
   return (
     <div className="App">
@@ -61,7 +86,14 @@ function App() {
         </Route>
         <Route exact path = "/home"> 
         {/* exact path = "/" ? */}
-          <ActivityContainer activities={activities} />
+          <ActivityContainer 
+          activities={sortedActivities}
+          sortBy={sortBy} 
+          setSortBy={setSortBy}
+          handleSearch={handleSearch}
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          />
         </Route>
       </Switch>  
     </div>
