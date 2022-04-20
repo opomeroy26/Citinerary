@@ -23,6 +23,7 @@ class ActivitiesController < ApplicationController
     def create 
         activity = Activity.create(activity_params)
         render json: activity, status: :created 
+    end
 
     # DELETE /activites/:id
     def destroy
