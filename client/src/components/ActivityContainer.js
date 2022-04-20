@@ -9,7 +9,8 @@ function ActivityContainer(
     setSortBy, 
     setSearchTerm, 
     filterBy, 
-    setFilterBy
+    setFilterBy,
+    handleDeleteActivity
   }) {
   
   const mappedActivities = activities.map(activity => (
@@ -17,6 +18,7 @@ function ActivityContainer(
       key={activity.id}
       activity={activity}
       category={activity.categories}
+      handleDeleteActivity={handleDeleteActivity}
     />
   ))
 
@@ -27,7 +29,7 @@ function ActivityContainer(
   return (
     <div>
       {/* <form action="/search" method="POST" */}
-      Sort by: 
+      <strong>Sort By:</strong>
       <select
       value={sortBy}
       onChange={(e) => setSortBy(e.target.value)}
@@ -37,15 +39,31 @@ function ActivityContainer(
         <option value="duration">Duration</option>
       </select>
 
-      {/* Select Location: 
+
       <label>
-        <strong>Filter:</strong>
+        <strong>Filter Location:</strong>
         <select onChange={handleFilterBy} value={filterBy}>
-          <option value="Tech">Tech</option>
-          <option value="Sportswear">Sportswear</option>
-          <option value="Finance">Finance</option>
+          <option value="default">All Cities</option>
+          <option value="Denver">Denver</option>
+          <option value="San Francisco">San Francisco</option>
+          <option value="Seattle">Seattle</option>
+          <option value="Los Angeles">Los Angeles</option>
+          <option value="Austin">Austin</option>
+          <option value="New York City">New York City</option>
+          <option value="Chicago">Chicago</option>
+          <option value="Houston">Houston</option>
+          <option value="Boulder">Boulder</option>
+          <option value="New Orleans">New Orleans</option>
+          <option value="San Diego">San Diego</option>
+          <option value="Phoenix">Phoenix</option>
+          <option value="Dallas">Dallas</option>
+          <option value="Philadelphia">Philadelphia</option>
+          <option value="Miami">Miami</option>
+          <option value="Atlanta">Atlanta</option>
+          <option value="Portland">Portland</option>
+          <option value="Boston">Boston</option>
         </select>
-      </label> */}
+      </label> 
 
       <form onSubmit={(e) => handleSearch(e, searchTerm)}> 
         <label>Search By Activity Name: </label>

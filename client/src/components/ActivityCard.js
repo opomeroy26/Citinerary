@@ -10,8 +10,13 @@ import Typography from '@mui/material/Typography';
 
 
 
-function ActivityCard({ activity, category }) {
-  // console.log(category)
+
+function ActivityCard({ activity, category, handleDeleteActivity }) {
+
+  function handleDelete(){
+    handleDeleteActivity(activity);
+  }
+
 
   const catName = category.map(cat => cat.name + " ")
   const catImg = category.map(cat => cat.category_icon)
@@ -50,7 +55,8 @@ function ActivityCard({ activity, category }) {
         {/* <img src={catImg} ></img> */}
       </CardContent>
       <CardActions>
-        <Button size="small">Learn More</Button>
+        <Button onClick={() => handleDelete()} size="small">Delete</Button>
+        <Button size="small">Add to My Activities</Button>
       </CardActions>
     </React.Fragment>
   );

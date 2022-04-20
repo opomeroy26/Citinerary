@@ -14,24 +14,26 @@ import MyActivities from './MyActivities';
 function App() {
 
   // State
-  const [activities, setActivities] = useState([])
-  const [user, setUser] = useState(null)
-  const [searchTerm, setSearchTerm] = useState("")
-  const [sortBy, setSortBy] = useState('default')
-  const [filterBy, setFilterBy] = useState("");
+  const [activities, setActivities] = useState([]);
+  const [user, setUser] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [sortBy, setSortBy] = useState('default');
+  const [filterBy, setFilterBy] = useState('default');
+
+  // const [errors, setErrors] = useState([]);
 
   console.log(activities)
 
   // Fetches
 
-  // Fetch all activities
+  // Fetch - All Activities
   useEffect(() => {
     fetch('http://localhost:3000/activities')
     .then(response => response.json())
     .then(activities => setActivities(activities))
   }, [])
 
-  // Fetch searched activities
+  // Fetch - Searched Activities
   function handleSearch(e, searchTerm){
     e.preventDefault()
     fetch('/search', { 
@@ -43,12 +45,23 @@ function App() {
     .then(response => response.json())
     .then(activities => setActivities(activities))
   }
+
+  // Fetch - Delete Activity
+  function handleDeleteActivity(activity){
+    fetch(`http://localhost:3000/activities/${activity.id}`, { method: 'DELETE' })
+    const newActivities = activities.filter( individualActivity => individualActivity !== activity)
+    setActivities(newActivities)
+    console.log(activity)
+  }
+
   
   useEffect(() => {
     // auto-login
     fetch("/me").then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user))
+      } else {
+        r.json().then(err => window.alert(err.errors))
       }
     });
   }, []);
@@ -68,9 +81,18 @@ const sortedActivities = activities
     }
 })
 
+// Filter Location
 // const filteredActivities = sortedActivities.filter(
-//   (activity) => activity.location === filterBy
+//   (activity) => activity.location.city === filterBy
 // )
+
+const filteredActivities = sortedActivities.filter((activity) => {
+  if (filterBy === 'default') {
+    return sortedActivities 
+  } else {
+    return activity.location.city === filterBy
+  }
+})
 
   function handleUpdateUser(updatedUser) {
     console.log("updating user", updatedUser)
@@ -81,7 +103,6 @@ const sortedActivities = activities
     console.log(activityForm)
     setActivities([...activities, activityForm])
   }
-
 
 
   return (
@@ -105,7 +126,7 @@ const sortedActivities = activities
         <Route exact path = "/home"> 
         {/* exact path = "/" ? */}
           <ActivityContainer 
-          activities={sortedActivities}
+          activities={filteredActivities}
           sortBy={sortBy} 
           setSortBy={setSortBy}
           handleSearch={handleSearch}
@@ -113,6 +134,7 @@ const sortedActivities = activities
           setSearchTerm={setSearchTerm}
           filterBy={filterBy}
           setFilterBy={setFilterBy}
+          handleDeleteActivity={handleDeleteActivity}
           />
         </Route>
         <Route exact path = "/myActivities">
