@@ -6,29 +6,62 @@ import Box from '@mui/material/Box';
 // import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { InputLabel } from '@mui/material';
+import { InputLabel, listItemSecondaryActionClasses } from '@mui/material';
 import { Select } from '@mui/material';
 import { FormControl } from '@mui/material';
 import { MenuItem } from '@mui/material';
+import { getFormControlUnstyledUtilityClasses } from '@mui/base';
 
-function AddActivity() {
-    const [location, setLocation] = useState('')
-    const [duration, setDuration] = useState('')
-    const [category, setCategory] = useState('')
+function AddActivity({activities, setActivities, onAddToActivities, user}) {
+    // const [name, setName] = useState("")
+    // const [description, setDescription] = useState("")
+    // const [duration, setDuration] = useState('')
+    // const [location_id, setLocationId] = useState("")
+    // const [categories, setCategegories] = useState("")
 
-    function handleLocationChange(e) {
-        setLocation(e.target.value)
+    // function handleSubmit(e){
+    //     e.preventDefault();
+    //     console.log(e.target.value)
+    //     onAddToActivities()
+    // }
+    
+
+
+    const initialActivityForm = {
+        name: '',
+        description: '',
+        location_id: '',
+        duration: '',
+        categories:'',
+        user_id: user.id 
     }
-    function handleDurationChange(e){
-        setDuration(e.target.value)
-    }
 
-    function handleCategoryChange(e){
-        setCategory(e.target.value)
+    const [activityForm, setActivityForm] = useState(initialActivityForm)
+
+    const handleChange = (event) => {
+        const {name, value} = event.target;
+        // console.log(name, value)
+        setActivityForm(activityForm => ({...activityForm, [name]: value}))
     }
 
     function handleSubmit(e){
         e.preventDefault()
+        console.log(activityForm)
+        const newActivity = {
+            name: activityForm.name,
+            description: activityForm.description,
+            duration: activityForm.duration,
+            location: {
+                city: activityForm.location_id
+            },
+            categories: [
+                {
+                    name: activityForm.categories
+                }
+            ]
+        }
+        setActivityForm(initialActivityForm)
+        onAddToActivities(newActivity)
     }
 
 
@@ -55,7 +88,8 @@ function AddActivity() {
                                      id = "name"
                                      label = "Activity Name"
                                      name= "name"
-                                     value= ""
+                                     value= {activityForm.name}
+                                     onChange = {handleChange}
                                      autoComplete="name"
                                      />
                                 </Grid>
@@ -66,7 +100,8 @@ function AddActivity() {
                                      id = "description"
                                      label = "Description"
                                      name= "description"
-                                     value = ""
+                                     value = {activityForm.description}
+                                     onChange= {handleChange}
                                      autoComplete="description"
                                      />
                                 </Grid>
@@ -75,13 +110,31 @@ function AddActivity() {
                                 <InputLabel id="demo-simple-select-standard-label">Location</InputLabel>
                                 <Select 
                                     labelId= "demo-simple-select-standard-label"
-                                    id="demo-simple-select-standard"
-                                    value = {location}
-                                    onChange = {handleLocationChange}
-                                    label = "Location"
+                                    id="location_id"
+                                    name = "location_id"
+                                    value = {activityForm.location_id}
+                                    onChange = {handleChange}
+                                    label = "location_id"
                                     >
-                                <MenuItem value="San Francisco">San Francisco</MenuItem>
                                 <MenuItem value="Denver">Denver</MenuItem>
+                                <MenuItem value="San Francisco">San Francisco</MenuItem>
+                                <MenuItem value="Seattle">Seattle</MenuItem>
+                                <MenuItem value="Los Angeles">Los Angeles</MenuItem>
+                                <MenuItem value="Austin">Austin</MenuItem>
+                                <MenuItem value="New York City">New York City</MenuItem>
+                                <MenuItem value="Chicago">Chicago</MenuItem>
+                                <MenuItem value="Houston">Houston</MenuItem>
+                                <MenuItem value="Boulder">Boulder</MenuItem>
+                                <MenuItem value="New Orleans">New Orleans</MenuItem>
+                                <MenuItem value="San Diego">San Diego</MenuItem>
+                                <MenuItem value="Phoenix">Phoenix</MenuItem>
+                                <MenuItem value="Dallas">Dallas</MenuItem>
+                                <MenuItem value="Philadelphia">Philadelphia</MenuItem>
+                                <MenuItem value="Miami">Miami</MenuItem>
+                                <MenuItem value="Atlanta">Atlanta</MenuItem>
+                                <MenuItem value="Portland">Portland</MenuItem>
+                                <MenuItem value="Boston">Boston</MenuItem>
+
                                  </Select>
                                  </FormControl>
                                 <FormControl variant ="standard" sx={{ m:2, minWidth: 400}}>
@@ -89,8 +142,9 @@ function AddActivity() {
                                 <Select 
                                     labelId= "demo-simple-select-standard-label"
                                     id="demo-simple-select-standard"
-                                    value = {duration}
-                                    onChange={handleDurationChange}
+                                    name= "duration"
+                                    value = {activityForm.duration}
+                                    onChange={handleChange}
                                     label = "Duration"
                                     >
                                 <MenuItem value={30}>30 min or less</MenuItem>
@@ -104,9 +158,10 @@ function AddActivity() {
                                 <Select 
                                     labelId= "demo-simple-select-standard-label"
                                     id="demo-simple-select-standard"
-                                    value = {category}
-                                    onChange = {handleCategoryChange}
-                                    label = "Category"
+                                    name = "categories"
+                                    value = {activityForm.categories}
+                                    onChange = {handleChange}
+                                    label = "Categories"
                                     >
                                 <MenuItem value="Outdoors">Outdoors</MenuItem>
                                 <MenuItem value="Date">Date</MenuItem>
@@ -117,7 +172,11 @@ function AddActivity() {
                                  </Select>
                                  </FormControl>
                                 </Grid>
-                                <Button>
+                                <Button
+                                type="submit"
+                                fullWidth
+                                variant="contained"
+                                sx={{ mt: 3, mb: 2 }}>
                                     Add Activity
                                 </Button>
                             </Grid>

@@ -18,10 +18,17 @@ class ActivitiesController < ApplicationController
         render json: @activity
     end
 
+
+    #POST /activities 
+    def create 
+        activity = Activity.create(activity_params)
+        render json: activity, status: :created 
+
     # DELETE /activites/:id
     def destroy
         @activity.destroy
         head :no_content
+
     end
 
 

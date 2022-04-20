@@ -10,11 +10,13 @@ import Typography from '@mui/material/Typography';
 
 
 
+
 function ActivityCard({ activity, category, handleDeleteActivity }) {
 
   function handleDelete(){
     handleDeleteActivity(activity);
   }
+
 
   const catName = category.map(cat => cat.name + " ")
   const catImg = category.map(cat => cat.category_icon)

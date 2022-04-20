@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import { useHistory } from "react-router-dom";
 
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
@@ -10,10 +9,10 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 
 function EditProfile({user, onUpdateUser}) {
-    const [username, setUsername] = useState("")
-    const [password, setPassword] = useState("")
-    const [age, setAge] = useState('')
-    const [profile_picture, setProfilePic] = useState("")
+    const [username, setUsername] = useState(user.username)
+    const [password, setPassword] = useState()
+    const [age, setAge] = useState(user.age)
+    const [profile_picture, setProfilePic] = useState(user.profile_picture)
 
 
     function handleSubmit(event){
@@ -70,7 +69,7 @@ function EditProfile({user, onUpdateUser}) {
                                      label = "Password"
                                      name= "password"
                                      value = {password}
-                                     onChange = {(e) => setPassword(e.target.value)}
+                                     onChange = {(e) => setPassword(e.target.value.replace(/[^A-Za-z]/g, "*"))}
                                      autoComplete="password"
                                      />
                                 </Grid>

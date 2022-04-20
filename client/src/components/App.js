@@ -22,6 +22,8 @@ function App() {
 
   // const [errors, setErrors] = useState([]);
 
+  console.log(activities)
+
   // Fetches
 
   // Fetch - All Activities
@@ -97,10 +99,16 @@ const filteredActivities = sortedActivities.filter((activity) => {
     setUser(updatedUser)
   }
 
+  function handleAddToActivities(activityForm) {
+    console.log(activityForm)
+    setActivities([...activities, activityForm])
+  }
+
 
   return (
     <div className="App">
-      <Header /> 
+      <Header user ={user}
+      /> 
       <NavBar user ={user} setUser={setUser}/>
       <Switch>
         {/* Will need to comment below SignIn out and uncomment the if statement above once auth is finished */}
@@ -133,7 +141,11 @@ const filteredActivities = sortedActivities.filter((activity) => {
           <MyActivities />
         </Route>
         <Route exact path = "/addActivity">
-          <AddActivity />
+          <AddActivity
+           activities = {activities}
+           setActivities = {setActivities}
+           onAddToActivities = {handleAddToActivities}
+           user = {user} />
         </Route>
       </Switch>  
     </div>
