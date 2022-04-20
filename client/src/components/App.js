@@ -20,18 +20,18 @@ function App() {
   const [sortBy, setSortBy] = useState('default');
   const [filterBy, setFilterBy] = useState('default');
 
-  const [errors, setErrors] = useState([]);
+  // const [errors, setErrors] = useState([]);
 
   // Fetches
 
-  // Fetch All Activities
+  // Fetch - All Activities
   useEffect(() => {
     fetch('http://localhost:3000/activities')
     .then(response => response.json())
     .then(activities => setActivities(activities))
   }, [])
 
-  // Fetch Searched Activities
+  // Fetch - Searched Activities
   function handleSearch(e, searchTerm){
     e.preventDefault()
     fetch('/search', { 
@@ -43,6 +43,15 @@ function App() {
     .then(response => response.json())
     .then(activities => setActivities(activities))
   }
+
+  // Fetch - Delete Activity
+  function handleDeleteActivity(activity){
+    fetch(`http://localhost:3000/activities/${activity.id}`, { method: 'DELETE' })
+    const newActivities = activities.filter( individualActivity => individualActivity !== activity)
+    setActivities(newActivities)
+    console.log(activity)
+  }
+
   
   useEffect(() => {
     // auto-login
@@ -117,6 +126,7 @@ const filteredActivities = sortedActivities.filter((activity) => {
           setSearchTerm={setSearchTerm}
           filterBy={filterBy}
           setFilterBy={setFilterBy}
+          handleDeleteActivity={handleDeleteActivity}
           />
         </Route>
         <Route exact path = "/myActivities">

@@ -1,21 +1,14 @@
 class ActivitiesController < ApplicationController
 
-    before_action :find_activity, only: [:show]
-    skip_before_action :authorize, only: [:index, :show]
+    before_action :find_activity, only: [:show, :destroy]
+    skip_before_action :authorize, only: [:index, :show, :destroy]
 
     # GET /activities
     def index
-        # if (params[:name])
-        #     @activities =  Activity.where({name: params[:name]})
-        # else
-        #     @activities = Activity.all
-        # end
-        
         render json: Activity.all
     end
 
     def search 
-        # activities = @Activity.where("name LIKE ?", "%" + params[:q] + "%")
         activities =  Activity.where({name: params[:name]})
         render json: activities
     end
@@ -23,6 +16,12 @@ class ActivitiesController < ApplicationController
     # GET /activites/:id
     def show 
         render json: @activity
+    end
+
+    # DELETE /activites/:id
+    def destroy
+        @activity.destroy
+        head :no_content
     end
 
 
@@ -34,7 +33,6 @@ class ActivitiesController < ApplicationController
 
     def activity_params
         params.permit(:name, :duration, :description, :user_id, :location_id)
-        # maybe include :search??
     end
 
 end

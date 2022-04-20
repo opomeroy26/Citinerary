@@ -9,7 +9,8 @@ function ActivityContainer(
     setSortBy, 
     setSearchTerm, 
     filterBy, 
-    setFilterBy
+    setFilterBy,
+    handleDeleteActivity
   }) {
   
   const mappedActivities = activities.map(activity => (
@@ -17,6 +18,7 @@ function ActivityContainer(
       key={activity.id}
       activity={activity}
       category={activity.categories}
+      handleDeleteActivity={handleDeleteActivity}
     />
   ))
 
