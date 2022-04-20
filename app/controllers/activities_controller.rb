@@ -25,6 +25,12 @@ class ActivitiesController < ApplicationController
         render json: @activity
     end
 
+    #POST /activities 
+    def create 
+        activity = Activity.create(activity_params)
+        render json: activity, status: :created 
+    end
+
 
     private 
 

@@ -11,6 +11,7 @@ import Typography from '@mui/material/Typography';
 
 
 function ActivityCard({ activity, category }) {
+  // console.log(category)
 
   const catName = category.map(cat => cat.name + " ")
   const catImg = category.map(cat => cat.category_icon)
