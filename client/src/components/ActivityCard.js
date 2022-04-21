@@ -53,8 +53,8 @@ function ActivityCard({
     }
   }
 
-  const catName = category.map(cat => cat.name + " ")
-  const catImg = category.map(cat => cat.category_icon)
+  // const catName = category.map(cat => cat.name + " ")
+  // const catImg = category.map(cat => cat.category_icon)
 
   const bull = (
     <Box
@@ -85,7 +85,7 @@ function ActivityCard({
         sx={{ fontSize: 11 }}
         variant="body2"
         >
-          {catName}
+          {activity.category_name}
         </Typography>
         {/* <img src={catImg} ></img> */}
       </CardContent>
