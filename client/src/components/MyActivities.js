@@ -13,7 +13,9 @@ function MyActivities({
   handleDeleteActivity,
   addMyActivities, 
   handleAddMyActivities, 
-  setMyActivities
+  setMyActivities,
+  handleShowActivities,
+  faveActivities
 }) {
   
   // only render if activity.like === true
@@ -28,6 +30,8 @@ function MyActivities({
         handleDeleteActivity={handleDeleteActivity}
         addMyActivities={addMyActivities}
         setMyActivities={setMyActivities}
+        handleShowActivities={handleShowActivities}
+        faveActivities={faveActivities}
       />
     ))
 

@@ -14,7 +14,8 @@ function ActivityContainer(
     handleDeleteActivity,
     addMyActivities,
     clearSearch,
-    handleShowActivities
+    handleShowActivities, 
+    faveActivities
   }) {
   
     
@@ -25,6 +26,8 @@ function ActivityContainer(
       category={activity.categories}
       handleDeleteActivity={handleDeleteActivity}
       addMyActivities={addMyActivities}
+      handleShowActivities={handleShowActivities}
+      faveActivities={faveActivities}
     />
   ))
 
@@ -49,7 +52,7 @@ function ActivityContainer(
         <strong>Filter Location:</strong>
         <select onChange={handleFilterBy} value={filterBy}>
           <option value="default">All Cities</option>
-          <option value="my activities">Show My Activities</option>
+          {/* <option value="my activities">Show My Activities</option> */}
           <option value="Denver">Denver</option>
           <option value="San Francisco">San Francisco</option>
           <option value="Seattle">Seattle</option>
