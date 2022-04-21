@@ -121,24 +121,30 @@ function ActivityContainer({
    
 
       <br></br>
-      <Button
+      {/* <Button */}
+      <button
+          id="button1"
           size="medium"
           color="primary"
           variant="text"
           onClick={() => handleShowActivities()}
         >
           Show Saved Activities
-        </Button>
+          </button>
+        {/* </Button> */}
 
    
-        <Button
+        {/* <Button */}
+        <button
+          id="button2"
           size="medium"
           color="primary"
           variant="text"
           onClick={() => clearSearch()}
         >
           Clear Search
-        </Button>
+          </button>
+        {/* </Button> */}
       </div>
 
       <div className="cards">{mappedActivities}</div>
