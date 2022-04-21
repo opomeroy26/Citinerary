@@ -1,7 +1,7 @@
 class ActivitiesController < ApplicationController
 
     before_action :find_activity, only: [:show, :destroy, :update]
-    skip_before_action :authorize, only: [:index, :show, :destroy, :update]
+    skip_before_action :authorize, only: [:index, :show, :destroy, :update, :create]
 
     # GET /activities
     def index
