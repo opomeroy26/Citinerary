@@ -63,7 +63,7 @@ function Header({user, setUser}) {
   }
 
   return (
-    <AppBar position="static">
+    <AppBar class="header" position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
