@@ -20,7 +20,7 @@ function Profile({user, onUpdateUser}) {
         <img id = "profile_image" alt={user.username} src={user.profile_picture}/>
         <h5 id="profile_name" >{user.username}</h5>
         <p id="profile_age">{user.age} years old</p>
-        <p id="profile_age">{date}</p>
+        <p id="profile_age">Today's date is {date}</p>
         <EditIcon onClick={()=> setShowForm(false)}/>
         </div>
       ) : (
