@@ -10,7 +10,6 @@ import Profile from './Profile';
 import AddActivity from './AddActivity';
 import MyActivities from './MyActivities';
 
-
 function App() {
 
   // State

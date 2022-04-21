@@ -24,8 +24,6 @@ function ActivityCard({
     e.stopPropagation()
     handleDeleteActivity(activity);
   }
-
-
   // function addActivity(e){
   //   e.stopPropagation()
   //   activity.like = true
@@ -64,10 +62,14 @@ function ActivityCard({
       •
     </Box>
   );
-  
+
+  const activityColors = activity.category_name === "Outdoors" ? "outdoors" : (activity.category_name === "Date" ? "date" : (activity.category_name === "Friend-Activity") ? "friend" : (activity.category_name === "Indoors") ? 'indoors' : (activity.category_name === "Solo") ? "solo" : 'card');
+
   const card = (
-    <React.Fragment >
-      <CardContent className='card'>
+    <React.Fragment>
+      <CardContent
+        className={activityColors}
+      >
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
         </Typography>
         <Typography variant="h5" component="div">

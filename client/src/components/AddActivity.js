@@ -25,9 +25,9 @@ function AddActivity({activities, setActivities, onAddToActivities, user}) {
         .then((locations)=> setLocations(locations))
     }, [])
 
-   
-      const locationId = locations.map(lo => lo.id)
-      const locationCity = locations.map(lo => lo.city)
+
+    const locationId = locations.map(lo => lo.id)
+    const locationCity = locations.map(lo => lo.city)
 
 
     const initialActivityForm = {
