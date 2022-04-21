@@ -35,7 +35,10 @@ function App() {
   useEffect(() => {
     fetch('http://localhost:3000/activities')
     .then(response => response.json())
-    .then(activities => setActivities(activities))
+    .then(activities => {
+      console.log(activities)
+      setActivities(activities)})
+  
   }, [])
 
   // Fetch - Searched Activities
