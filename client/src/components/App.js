@@ -124,10 +124,17 @@ const filteredActivities = sortedActivities.filter((activity) => {
     setActivities([...activities, activityForm])
   }
 
-    // Clear Search --- TESTSTING, STILL NOT WORKING
-    function clearSearch(filteredActivities){
-      // setSearchTerm("")
-      // setActivities(filteredActivities)
+
+    // Clear Search
+    function resetFetch(){
+      fetch('http://localhost:3000/activities')
+      .then(response => response.json())
+      .then(activities => setActivities(activities))
+    }
+
+    function clearSearch(){
+      setSearchTerm("")
+      resetFetch()
       console.log('test clear')
     }
 
