@@ -42,7 +42,8 @@ function AddActivity({activities, setActivities, onAddToActivities, user}) {
         description: '',
         location_id: '',
         duration: '',
-        // categories:'',
+        category_name:'',
+        // category_icon:'',
         user_id: user.id 
     }
 
@@ -65,7 +66,9 @@ function AddActivity({activities, setActivities, onAddToActivities, user}) {
             duration: activityForm.duration,
             description: activityForm.description,
             user_id:user.id,
-            location_id: activityForm.location_id
+            location_id: activityForm.location_id,
+            category_name: activityForm.category_name,
+            // category_icon: activityForm.category_icon,
         }
         fetch('http://localhost:3000/activities', {
             method: "POST",
@@ -136,24 +139,24 @@ function AddActivity({activities, setActivities, onAddToActivities, user}) {
                                     >
                                     {/* <LocationList /> */}
 
-                                    <MenuItem value={85}>Denver</MenuItem>
-                                    <MenuItem value={86}>San Francisco</MenuItem>
-                                    <MenuItem value={87}>Seattle</MenuItem>
-                                    <MenuItem value={88}>Los Angeles</MenuItem>
-                                    <MenuItem value={89}>Austin</MenuItem>
-                                    <MenuItem value={90}>New York City</MenuItem>
-                                    <MenuItem value={91}>Chicago</MenuItem>
-                                    <MenuItem value={92}>Houston</MenuItem>
-                                    <MenuItem value={93}>Boulder</MenuItem>
-                                    <MenuItem value={94}>New Orleans</MenuItem>
-                                    <MenuItem value={95}>San Diego</MenuItem>
-                                    <MenuItem value={96}>Phoenix</MenuItem>
-                                    <MenuItem value={97}>Dallas</MenuItem>
-                                    <MenuItem value={98}>Philadelphia</MenuItem>
-                                    <MenuItem value={99}>Miami</MenuItem>
-                                    <MenuItem value={100}>Atlanta</MenuItem>
-                                    <MenuItem value={101}>Portland</MenuItem>
-                                    <MenuItem value={102}>Boston</MenuItem>
+                                    <MenuItem value={1}>Denver</MenuItem>
+                                    <MenuItem value={2}>San Francisco</MenuItem>
+                                    <MenuItem value={3}>Seattle</MenuItem>
+                                    <MenuItem value={4}>Los Angeles</MenuItem>
+                                    <MenuItem value={5}>Austin</MenuItem>
+                                    <MenuItem value={6}>New York City</MenuItem>
+                                    <MenuItem value={7}>Chicago</MenuItem>
+                                    <MenuItem value={8}>Houston</MenuItem>
+                                    <MenuItem value={9}>Boulder</MenuItem>
+                                    <MenuItem value={10}>New Orleans</MenuItem>
+                                    <MenuItem value={11}>San Diego</MenuItem>
+                                    <MenuItem value={12}>Phoenix</MenuItem>
+                                    <MenuItem value={13}>Dallas</MenuItem>
+                                    <MenuItem value={14}>Philadelphia</MenuItem>
+                                    <MenuItem value={15}>Miami</MenuItem>
+                                    <MenuItem value={16}>Atlanta</MenuItem>
+                                    <MenuItem value={17}>Portland</MenuItem>
+                                    <MenuItem value={18}>Boston</MenuItem>
 
                                 {/* <MenuItem value={locationId.id}>{locationCity.city}</MenuItem>
                                 <MenuItem value="San Francisco">San Francisco</MenuItem>
@@ -192,15 +195,15 @@ function AddActivity({activities, setActivities, onAddToActivities, user}) {
                                 <MenuItem value={120}>120 min or more</MenuItem>
                                  </Select>
                                  </FormControl>
-                                 {/* <FormControl variant ="standard" sx={{ m:2, minWidth: 400}}>
+                                 <FormControl variant ="standard" sx={{ m:2, minWidth: 400}}>
                                 <InputLabel id="demo-simple-select-standard-label">Category</InputLabel>
                                 <Select 
                                     labelId= "demo-simple-select-standard-label"
                                     id="demo-simple-select-standard"
-                                    name = "categories"
-                                    value = {activityForm.categories}
+                                    name = "category_name"
+                                    value = {activityForm.category_name}
                                     onChange = {handleChange}
-                                    label = "Categories"
+                                    label = "Categories_Name"
                                     >
                                 <MenuItem value="Outdoors">Outdoors</MenuItem>
                                 <MenuItem value="Date">Date</MenuItem>
@@ -209,7 +212,7 @@ function AddActivity({activities, setActivities, onAddToActivities, user}) {
                                 <MenuItem value="Indoors">Indoors</MenuItem>
                                 <MenuItem value="Food">Food</MenuItem>
                                  </Select>
-                                 </FormControl> */}
+                                 </FormControl>
                                 </Grid>
                                 <Button
                                 type="submit"
