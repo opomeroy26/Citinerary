@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import { useHistory } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
@@ -13,28 +14,20 @@ import { MenuItem } from '@mui/material';
 import { getFormControlUnstyledUtilityClasses } from '@mui/base';
 
 function AddActivity({activities, setActivities, onAddToActivities, user}) {
-    const [locations, setLocations] = useState("")
+    const [locations, setLocations] = useState([])
 
-    // const LocationList = () => ( locations.map(loc => <MenuItem value={loc.id}>{loc.city}</MenuItem>))
+    const history = useHistory()
 
-
-
+    
     useEffect(() => {
         fetch('http://localhost:3000/locations')
         .then(response => response.json())
-        .then(locations => setLocations(locations))
+        .then((locations)=> setLocations(locations))
     }, [])
 
-    //  const locationId = () => (
-    //     locations.map((loc) => loc.id)
-    // )
-
-    // const locationCity = () => (
-    //     locations.map((loc) => loc.city)
-    // )
-
-    // const lid = locations.map(lo => lo.id)
-    // const lcity= locations.map(lo => lo.city)
+   
+      const locationId = locations.map(lo => lo.id)
+      const locationCity = locations.map(lo => lo.city)
 
 
     const initialActivityForm = {
@@ -51,15 +44,12 @@ function AddActivity({activities, setActivities, onAddToActivities, user}) {
 
     const handleChange = (event) => {
         const {name, value} = event.target;
-        console.log(name, value)
         setActivityForm(activityForm => ({...activityForm, [name]: value}))
     }
 
-    // console.log(activityForm)
 
     function handleSubmit(e){
         e.preventDefault()
-        console.log(activityForm)
         const newActivity = {
 
             name: activityForm.name,
@@ -68,7 +58,7 @@ function AddActivity({activities, setActivities, onAddToActivities, user}) {
             user_id:user.id,
             location_id: activityForm.location_id,
             category_name: activityForm.category_name,
-            // category_icon: activityForm.category_icon,
+            // category_icon: 
         }
         fetch('http://localhost:3000/activities', {
             method: "POST",
@@ -77,11 +67,11 @@ function AddActivity({activities, setActivities, onAddToActivities, user}) {
             },
             body: JSON.stringify(newActivity)
         })
+        .then((resp) => resp.json())
+        .then((data)=> onAddToActivities(data) )
         .then(setActivityForm(initialActivityForm))
-        .then(onAddToActivities(newActivity))
-        .then(console.log(newActivity))
+        .then(history.push("/home"))
     }
-
 
 
 
@@ -134,47 +124,26 @@ function AddActivity({activities, setActivities, onAddToActivities, user}) {
                                     name = "location_id"
                                     value = {activityForm.location_id}
                                     onChange = {handleChange}
-                                    label = "Location_id"
+                                    label = "Location_Id"
                                     >
-                                    {/* <LocationList /> */}
 
-                                    <MenuItem value={1}>Denver</MenuItem>
-                                    <MenuItem value={2}>San Francisco</MenuItem>
-                                    <MenuItem value={3}>Seattle</MenuItem>
-                                    <MenuItem value={4}>Los Angeles</MenuItem>
-                                    <MenuItem value={5}>Austin</MenuItem>
-                                    <MenuItem value={6}>New York City</MenuItem>
-                                    <MenuItem value={7}>Chicago</MenuItem>
-                                    <MenuItem value={8}>Houston</MenuItem>
-                                    <MenuItem value={9}>Boulder</MenuItem>
-                                    <MenuItem value={10}>New Orleans</MenuItem>
-                                    <MenuItem value={11}>San Diego</MenuItem>
-                                    <MenuItem value={12}>Phoenix</MenuItem>
-                                    <MenuItem value={13}>Dallas</MenuItem>
-                                    <MenuItem value={14}>Philadelphia</MenuItem>
-                                    <MenuItem value={15}>Miami</MenuItem>
-                                    <MenuItem value={16}>Atlanta</MenuItem>
-                                    <MenuItem value={17}>Portland</MenuItem>
-                                    <MenuItem value={18}>Boston</MenuItem>
-
-                                {/* <MenuItem value={locationId.id}>{locationCity.city}</MenuItem>
-                                <MenuItem value="San Francisco">San Francisco</MenuItem>
-                                <MenuItem value="Seattle">Seattle</MenuItem>
-                                <MenuItem value="Los Angeles">Los Angeles</MenuItem>
-                                <MenuItem value="Austin">Austin</MenuItem>
-                                <MenuItem value="New York City">New York City</MenuItem>
-                                <MenuItem value="Chicago">Chicago</MenuItem>
-                                <MenuItem value="Houston">Houston</MenuItem>
-                                <MenuItem value="Boulder">Boulder</MenuItem>
-                                <MenuItem value="New Orleans">New Orleans</MenuItem>
-                                <MenuItem value="San Diego">San Diego</MenuItem>
-                                <MenuItem value="Phoenix">Phoenix</MenuItem>
-                                <MenuItem value="Dallas">Dallas</MenuItem>
-                                <MenuItem value="Philadelphia">Philadelphia</MenuItem>
-                                <MenuItem value="Miami">Miami</MenuItem>
-                                <MenuItem value="Atlanta">Atlanta</MenuItem>
-                                <MenuItem value="Portland">Portland</MenuItem>
-                                <MenuItem value="Boston">Boston</MenuItem>  */}
+                                <MenuItem value={locationId[0]}>{locationCity[0]}</MenuItem>
+                                <MenuItem value={locationId[1]}>{locationCity[1]}</MenuItem>
+                                <MenuItem value={locationId[3]}>{locationCity[2]}</MenuItem>
+                                <MenuItem value={locationId[4]}>{locationCity[3]}</MenuItem>
+                                <MenuItem value={locationId[5]}>{locationCity[4]}</MenuItem>
+                                <MenuItem value={locationId[6]}>{locationCity[5]}</MenuItem>
+                                <MenuItem value={locationId[7]}>{locationCity[6]}</MenuItem>
+                                <MenuItem value={locationId[8]}>{locationCity[7]}</MenuItem>
+                                <MenuItem value={locationId[9]}>{locationCity[8]}</MenuItem>
+                                <MenuItem value={locationId[10]}>{locationCity[9]}</MenuItem>
+                                <MenuItem value={locationId[11]}>{locationCity[10]}</MenuItem>
+                                <MenuItem value={locationId[12]}>{locationCity[11]}</MenuItem>
+                                <MenuItem value={locationId[13]}>{locationCity[12]}</MenuItem>
+                                <MenuItem value={locationId[14]}>{locationCity[13]}</MenuItem>
+                                <MenuItem value={locationId[15]}>{locationCity[14]}</MenuItem>
+                                <MenuItem value={locationId[16]}>{locationCity[15]}</MenuItem>
+                                <MenuItem value={locationId[17]}>{locationCity[16]}</MenuItem> 
 
                                  </Select>
                                  </FormControl>
