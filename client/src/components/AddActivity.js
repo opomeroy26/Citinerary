@@ -145,7 +145,7 @@ function AddActivity({activities, setActivities, onAddToActivities, user}) {
                                     >
                                     {/* <LocationList /> */}
 
-                                    <MenuItem value={67}>Denver</MenuItem>
+                                    <MenuItem value={85}>Denver</MenuItem>
                                     <MenuItem value={67}>San Francisco</MenuItem>
                                     <MenuItem value={67}>Seattle</MenuItem>
                                     <MenuItem value={67}>Denver</MenuItem>

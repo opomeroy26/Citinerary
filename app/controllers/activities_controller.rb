@@ -1,7 +1,12 @@
 class ActivitiesController < ApplicationController
 
+<<<<<<< Updated upstream
     before_action :find_activity, only: [:show, :destroy, :update]
     skip_before_action :authorize, only: [:index, :show, :destroy, :update]
+=======
+    before_action :find_activity, only: [:show, :destroy]
+    skip_before_action :authorize, only: [:index, :show, :destroy, :create]
+>>>>>>> Stashed changes
 
     # GET /activities
     def index
