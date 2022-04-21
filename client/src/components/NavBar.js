@@ -35,11 +35,11 @@ function NavBar({ user, setUser }) {
       >
         Profile
       </Link>
-      <Link
+      {/* <Link
         color="inherit"
         underline="hover"
         to="/myActivities"
-      >My Activities</Link>
+      >My Activities</Link> */}
       <Link
         color="inherit"
         underline="hover"

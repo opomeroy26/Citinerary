@@ -9,7 +9,15 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 
-function ActivityCard({ activity, category, handleDeleteActivity, addMyActivities, setMyActivities }) {
+function ActivityCard({ 
+  activity, 
+  category, 
+  handleDeleteActivity, 
+  addMyActivities, 
+  setMyActivities, 
+  handleShowActivities,
+  faveActivities
+  }) {
 
 
   function handleDelete(e){
@@ -36,11 +44,12 @@ function ActivityCard({ activity, category, handleDeleteActivity, addMyActivitie
     }
   }
 
-  function removeActivity(e){
+  function removeActivity(e, faveActivities){
     e.stopPropagation()
     if(activity.like === true){
       activity.like = false
       addMyActivities(activity);
+      handleShowActivities(faveActivities)
     }
   }
 

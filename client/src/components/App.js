@@ -172,9 +172,10 @@ const filteredActivities = sortedActivities.filter((activity) => {
             addMyActivities={handleAddMyActivities}
             clearSearch={clearSearch}
             handleShowActivities={handleShowMyActivities}
+            faveActivities={faveActivities}
           />
         </Route>
-        <Route exact path = "/myActivities">
+        {/* <Route exact path = "/myActivities">
           <MyActivities 
             activities={myActivities}
             sortBy={sortBy} 
@@ -187,9 +188,10 @@ const filteredActivities = sortedActivities.filter((activity) => {
             handleDeleteActivity={handleDeleteActivity}
             addMyActivities={handleAddMyActivities}
             setMyActivities={setMyActivities}
-
+            handleShowActivities={handleShowMyActivities}
+            faveActivities={faveActivities}
           />
-        </Route>
+        </Route> */}
         <Route exact path = "/addActivity">
           <AddActivity
           activities = {activities}
