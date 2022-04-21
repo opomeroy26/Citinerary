@@ -125,7 +125,7 @@ const filteredActivities = sortedActivities.filter((activity) => {
   }
 
 
-    // Clear Search
+    // Clear Search -- This can maybe be moved down a level to ActivityContainer
     function resetFetch(){
       fetch('http://localhost:3000/activities')
       .then(response => response.json())
