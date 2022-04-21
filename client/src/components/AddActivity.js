@@ -82,7 +82,6 @@ function AddActivity({activities, setActivities, onAddToActivities, user}) {
         .then(console.log(newActivity))
     }
 
-  
 
 
 
