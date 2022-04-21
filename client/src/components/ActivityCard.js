@@ -9,14 +9,32 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 
+function ActivityCard({ activity, category, handleDeleteActivity, addMyActivities, setMyActivities }) {
 
 
-function ActivityCard({ activity, category, handleDeleteActivity }) {
-
-  function handleDelete(){
+  function handleDelete(e){
+    e.stopPropagation()
     handleDeleteActivity(activity);
   }
 
+
+  // function addActivity(e){
+  //   e.stopPropagation()
+  //   activity.like = true
+  //   addMyActivities(activity);
+  //   // console.log(activity)
+  // }
+
+  function addActivity(e){
+    e.stopPropagation()
+    if (activity.like === false ){
+    activity.like = true
+    addMyActivities(activity);
+    // } else {
+    //   activity.like = false
+    //   addMyActivities(!activity)
+    }
+  }
 
   const catName = category.map(cat => cat.name + " ")
   const catImg = category.map(cat => cat.category_icon)
@@ -55,8 +73,9 @@ function ActivityCard({ activity, category, handleDeleteActivity }) {
         {/* <img src={catImg} ></img> */}
       </CardContent>
       <CardActions>
-        <Button onClick={() => handleDelete()} size="small">Delete</Button>
-        <Button size="small">Add to My Activities</Button>
+        <Button onClick={(e) => handleDelete(e)} size="small">Delete</Button>
+        {/* <Button onClick={(e) => addActivity(e)} size="small">Add to My Activities</Button> */}
+        <Button onClick={(e) => addActivity(e)} size="small">{activity.like === true ? "Remove from My Activities" : "Add to My Activities"}</Button>
       </CardActions>
     </React.Fragment>
   );
@@ -67,5 +86,6 @@ function ActivityCard({ activity, category, handleDeleteActivity }) {
     </Box>
   );
 }
+
 
 export default ActivityCard

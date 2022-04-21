@@ -1,7 +1,7 @@
 class ActivitiesController < ApplicationController
 
-    before_action :find_activity, only: [:show, :destroy]
-    skip_before_action :authorize, only: [:index, :show, :destroy]
+    before_action :find_activity, only: [:show, :destroy, :update]
+    skip_before_action :authorize, only: [:index, :show, :destroy, :update]
 
     # GET /activities
     def index
@@ -18,6 +18,12 @@ class ActivitiesController < ApplicationController
         render json: @activity
     end
 
+    # PATCH /activites/:id
+    def update
+        @activity.update!(activity_params)
+        render json: @activity, status: :created
+        # byebug
+    end
 
     #POST /activities 
     def create 
@@ -40,7 +46,8 @@ class ActivitiesController < ApplicationController
     end
 
     def activity_params
-        params.permit(:name, :duration, :description, :user_id, :location_id)
+        params.permit(:name, :duration, :description, :user_id, :location_id, :like)
+        # params.require(:activity).permit(:id, :name, :duration, :description,  :like, user: [:id, :username, :password, :age, :profile_picture], location: [:id, :city], categories: [:id, :category_icon, :name])
     end
 
 end
