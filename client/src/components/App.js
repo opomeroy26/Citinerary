@@ -181,7 +181,7 @@ const filteredActivities = sortedActivities.filter((activity) => {
             handleShowActivities={handleShowMyActivities}
           />
         </Route>
-        <Route exact path = "/myActivities">
+        {/* <Route exact path = "/myActivities">
           <MyActivities 
             activities={myActivities}
             sortBy={sortBy} 
@@ -196,7 +196,7 @@ const filteredActivities = sortedActivities.filter((activity) => {
             setMyActivities={setMyActivities}
 
           />
-        </Route>
+        </Route> */}
         <Route exact path = "/addActivity">
           <AddActivity
           activities = {activities}
