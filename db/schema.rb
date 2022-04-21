@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2022_04_21_151908) do
     t.index ["user_id"], name: "index_activities_on_user_id"
   end
 
+
   create_table "locations", force: :cascade do |t|
     t.string "city"
     t.datetime "created_at", precision: 6, null: false
@@ -47,4 +48,6 @@ ActiveRecord::Schema.define(version: 2022_04_21_151908) do
 
   add_foreign_key "activities", "locations"
   add_foreign_key "activities", "users"
+  add_foreign_key "activity_categories", "activities"
+  add_foreign_key "activity_categories", "categories"
 end
