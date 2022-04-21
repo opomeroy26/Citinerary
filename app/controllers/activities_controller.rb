@@ -27,7 +27,7 @@ class ActivitiesController < ApplicationController
 
     #POST /activities 
     def create 
-        activity = Activity.create(activity_params)
+        activity = Activity.create!(activity_params)
         render json: activity, status: :created 
     end
 

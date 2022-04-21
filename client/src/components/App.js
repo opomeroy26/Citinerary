@@ -1,5 +1,5 @@
 import '../App.css';
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useHistory } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import ActivityContainer from './ActivityContainer';
 import NavBar from './NavBar';
@@ -23,6 +23,12 @@ function App() {
   // const [errors, setErrors] = useState([]);
   const [like, setLike] = useState(false)
   
+  const history = useHistory()
+
+  // const [errors, setErrors] = useState([]);
+
+  // console.log(activities)
+
   // Fetches
 
   // Fetch - All Activities
@@ -51,6 +57,7 @@ function App() {
     fetch(`http://localhost:3000/activities/${activity.id}`, { method: 'DELETE' })
     const newActivities = activities.filter( individualActivity => individualActivity !== activity)
     setActivities(newActivities)
+    // console.log(activity)
   }
 
 

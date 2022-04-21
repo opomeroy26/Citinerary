@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
@@ -13,18 +13,40 @@ import { MenuItem } from '@mui/material';
 import { getFormControlUnstyledUtilityClasses } from '@mui/base';
 
 function AddActivity({activities, setActivities, onAddToActivities, user}) {
-    // const [name, setName] = useState("")
-    // const [description, setDescription] = useState("")
-    // const [duration, setDuration] = useState('')
-    // const [location_id, setLocationId] = useState("")
-    // const [categories, setCategegories] = useState("")
+    const [locations, setLocations] = useState("")
 
-    // function handleSubmit(e){
-    //     e.preventDefault();
-    //     console.log(e.target.value)
-    //     onAddToActivities()
-    // }
-    
+    // const LocationList = () => ( locations.map(loc => <MenuItem value={loc.id}>{loc.city}</MenuItem>))
+    // const LocationList = locations.map((loc) => console.log(loc.id) )
+    // const LocationId = () => (locations.map(loc => <Select locId={loc.id}> {loc.id} </Select>))
+
+    console.log(locations)
+
+    // const LocationList = locations.map(loc => (
+    //     <MenuItem
+    //       key={loc.id}
+    //       value={loc.id}
+    //       city = {loc.city}
+    //       />
+    // ))
+
+
+
+    useEffect(() => {
+        fetch('http://localhost:3000/locations')
+        .then(response => response.json())
+        .then(locations => setLocations(locations))
+    }, [])
+
+    //  const locationId = () => (
+    //     locations.map((loc) => loc.id)
+    // )
+
+    // const locationCity = () => (
+    //     locations.map((loc) => loc.city)
+    // )
+
+    // const lid = locations.map(lo => lo.id)
+    // const lcity= locations.map(lo => lo.city)
 
 
     const initialActivityForm = {
@@ -40,29 +62,34 @@ function AddActivity({activities, setActivities, onAddToActivities, user}) {
 
     const handleChange = (event) => {
         const {name, value} = event.target;
-        // console.log(name, value)
+        console.log(name, value)
         setActivityForm(activityForm => ({...activityForm, [name]: value}))
     }
+
+    console.log(activityForm)
 
     function handleSubmit(e){
         e.preventDefault()
         console.log(activityForm)
         const newActivity = {
+
             name: activityForm.name,
-            description: activityForm.description,
             duration: activityForm.duration,
-            location: {
-                city: activityForm.location_id
-            },
-            categories: [
-                {
-                    name: activityForm.categories
-                }
-            ]
+            description: activityForm.description,
+            user_id:user.id,
+            location_id: activityForm.location_id
         }
-        setActivityForm(initialActivityForm)
-        onAddToActivities(newActivity)
+        fetch('http://localhost:3000/activities', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newActivity)
+        })
+        .then(setActivityForm(initialActivityForm))
+        .then(onAddToActivities(newActivity))
     }
+
 
 
   return (
@@ -110,13 +137,28 @@ function AddActivity({activities, setActivities, onAddToActivities, user}) {
                                 <InputLabel id="demo-simple-select-standard-label">Location</InputLabel>
                                 <Select 
                                     labelId= "demo-simple-select-standard-label"
-                                    id="location_id"
+                                    id="demo-simple-select-standard"
                                     name = "location_id"
                                     value = {activityForm.location_id}
                                     onChange = {handleChange}
-                                    label = "location_id"
+                                    label = "Location_id"
                                     >
-                                <MenuItem value="Denver">Denver</MenuItem>
+                                    {/* <LocationList /> */}
+
+                                    <MenuItem value={67}>Denver</MenuItem>
+                                    <MenuItem value={67}>San Francisco</MenuItem>
+                                    <MenuItem value={67}>Seattle</MenuItem>
+                                    <MenuItem value={67}>Denver</MenuItem>
+                                    <MenuItem value={67}>Denver</MenuItem>
+                                    <MenuItem value={67}>Denver</MenuItem>
+                                    <MenuItem value={67}>Denver</MenuItem>
+                                    <MenuItem value={67}>Denver</MenuItem>
+                                    <MenuItem value={67}>Denver</MenuItem>
+                                    <MenuItem value={67}>Denver</MenuItem>
+                                    <MenuItem value={67}>Denver</MenuItem>
+                                    <MenuItem value={67}>Denver</MenuItem>
+
+                                {/* <MenuItem value={locationId.id}>{locationCity.city}</MenuItem>
                                 <MenuItem value="San Francisco">San Francisco</MenuItem>
                                 <MenuItem value="Seattle">Seattle</MenuItem>
                                 <MenuItem value="Los Angeles">Los Angeles</MenuItem>
@@ -133,7 +175,7 @@ function AddActivity({activities, setActivities, onAddToActivities, user}) {
                                 <MenuItem value="Miami">Miami</MenuItem>
                                 <MenuItem value="Atlanta">Atlanta</MenuItem>
                                 <MenuItem value="Portland">Portland</MenuItem>
-                                <MenuItem value="Boston">Boston</MenuItem>
+                                <MenuItem value="Boston">Boston</MenuItem>  */}
 
                                  </Select>
                                  </FormControl>
@@ -141,7 +183,7 @@ function AddActivity({activities, setActivities, onAddToActivities, user}) {
                                 <InputLabel id="demo-simple-select-standard-label">Duration</InputLabel>
                                 <Select 
                                     labelId= "demo-simple-select-standard-label"
-                                    id="demo-simple-select-standard"
+                                    // id="demo-simple-select-standard"
                                     name= "duration"
                                     value = {activityForm.duration}
                                     onChange={handleChange}
