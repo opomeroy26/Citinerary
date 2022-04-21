@@ -36,3 +36,44 @@ a {
   text-decoration: none;
   color: black;
 }
+
+#profile_image{
+  border-radius: 50%;
+  width: 500px;
+  height: 500px;
+  margin: 35px;
+}
+
+#profile_name{
+  font-family: "Times New Roman";
+  font-size: 30px;
+  margin: 0px;
+}
+
+#profile_age{
+  font-family: "Times New Roman";
+  font-size: 20px;
+  margin: 5px;
+}
+
+#header {
+  padding: 5px;
+  height: 100px;
+  /* text-align: center; */
+  background: rgb(112, 173, 237); 
+  color: white;
+  /* font-size: 15px; */
+}
+
+#date {
+  text-align: right
+}
+
+span:hover + header {
+  background-color: yellow;
+}
+
+#welcome {
+  text-align: center;
+  margin: 0px;
+}
