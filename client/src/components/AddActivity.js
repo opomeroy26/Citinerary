@@ -16,18 +16,6 @@ function AddActivity({activities, setActivities, onAddToActivities, user}) {
     const [locations, setLocations] = useState("")
 
     // const LocationList = () => ( locations.map(loc => <MenuItem value={loc.id}>{loc.city}</MenuItem>))
-    // const LocationList = locations.map((loc) => console.log(loc.id) )
-    // const LocationId = () => (locations.map(loc => <Select locId={loc.id}> {loc.id} </Select>))
-
-    console.log(locations)
-
-    // const LocationList = locations.map(loc => (
-    //     <MenuItem
-    //       key={loc.id}
-    //       value={loc.id}
-    //       city = {loc.city}
-    //       />
-    // ))
 
 
 
@@ -54,7 +42,7 @@ function AddActivity({activities, setActivities, onAddToActivities, user}) {
         description: '',
         location_id: '',
         duration: '',
-        categories:'',
+        // categories:'',
         user_id: user.id 
     }
 
@@ -66,7 +54,7 @@ function AddActivity({activities, setActivities, onAddToActivities, user}) {
         setActivityForm(activityForm => ({...activityForm, [name]: value}))
     }
 
-    console.log(activityForm)
+    // console.log(activityForm)
 
     function handleSubmit(e){
         e.preventDefault()
@@ -88,7 +76,10 @@ function AddActivity({activities, setActivities, onAddToActivities, user}) {
         })
         .then(setActivityForm(initialActivityForm))
         .then(onAddToActivities(newActivity))
+        .then(console.log(newActivity))
     }
+
+  
 
 
 
@@ -145,18 +136,24 @@ function AddActivity({activities, setActivities, onAddToActivities, user}) {
                                     >
                                     {/* <LocationList /> */}
 
-                                    <MenuItem value={67}>Denver</MenuItem>
-                                    <MenuItem value={67}>San Francisco</MenuItem>
-                                    <MenuItem value={67}>Seattle</MenuItem>
-                                    <MenuItem value={67}>Denver</MenuItem>
-                                    <MenuItem value={67}>Denver</MenuItem>
-                                    <MenuItem value={67}>Denver</MenuItem>
-                                    <MenuItem value={67}>Denver</MenuItem>
-                                    <MenuItem value={67}>Denver</MenuItem>
-                                    <MenuItem value={67}>Denver</MenuItem>
-                                    <MenuItem value={67}>Denver</MenuItem>
-                                    <MenuItem value={67}>Denver</MenuItem>
-                                    <MenuItem value={67}>Denver</MenuItem>
+                                    <MenuItem value={85}>Denver</MenuItem>
+                                    <MenuItem value={86}>San Francisco</MenuItem>
+                                    <MenuItem value={87}>Seattle</MenuItem>
+                                    <MenuItem value={88}>Los Angeles</MenuItem>
+                                    <MenuItem value={89}>Austin</MenuItem>
+                                    <MenuItem value={90}>New York City</MenuItem>
+                                    <MenuItem value={91}>Chicago</MenuItem>
+                                    <MenuItem value={92}>Houston</MenuItem>
+                                    <MenuItem value={93}>Boulder</MenuItem>
+                                    <MenuItem value={94}>New Orleans</MenuItem>
+                                    <MenuItem value={95}>San Diego</MenuItem>
+                                    <MenuItem value={96}>Phoenix</MenuItem>
+                                    <MenuItem value={97}>Dallas</MenuItem>
+                                    <MenuItem value={98}>Philadelphia</MenuItem>
+                                    <MenuItem value={99}>Miami</MenuItem>
+                                    <MenuItem value={100}>Atlanta</MenuItem>
+                                    <MenuItem value={101}>Portland</MenuItem>
+                                    <MenuItem value={102}>Boston</MenuItem>
 
                                 {/* <MenuItem value={locationId.id}>{locationCity.city}</MenuItem>
                                 <MenuItem value="San Francisco">San Francisco</MenuItem>
@@ -195,7 +192,7 @@ function AddActivity({activities, setActivities, onAddToActivities, user}) {
                                 <MenuItem value={120}>120 min or more</MenuItem>
                                  </Select>
                                  </FormControl>
-                                 <FormControl variant ="standard" sx={{ m:2, minWidth: 400}}>
+                                 {/* <FormControl variant ="standard" sx={{ m:2, minWidth: 400}}>
                                 <InputLabel id="demo-simple-select-standard-label">Category</InputLabel>
                                 <Select 
                                     labelId= "demo-simple-select-standard-label"
@@ -212,7 +209,7 @@ function AddActivity({activities, setActivities, onAddToActivities, user}) {
                                 <MenuItem value="Indoors">Indoors</MenuItem>
                                 <MenuItem value="Food">Food</MenuItem>
                                  </Select>
-                                 </FormControl>
+                                 </FormControl> */}
                                 </Grid>
                                 <Button
                                 type="submit"
