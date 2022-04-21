@@ -12,6 +12,12 @@ code {
     monospace;
 }
 
+/* LINK */
+a {
+  text-decoration: none;
+  color: black;
+}
+
 /* Activity Cards */
 
 .cards {
@@ -31,11 +37,6 @@ code {
   padding: 10px;
 }
 
-/* LINK */
-a {
-  text-decoration: none;
-  color: black;
-}
 
 #profile_image{
   border-radius: 50%;
@@ -76,4 +77,38 @@ span:hover + header {
 #welcome {
   text-align: center;
   margin: 0px;
+  
+/* Home Page */
+
+.main {
+  display: inline-flex;
+  align-items: center;
+}
+
+.button {
+  display: inline-flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+/* Card colors */
+
+.outdoors {
+  background-color: lightseagreen;
+}
+
+.date {
+  background-color: lightcoral;
+}
+
+.friend{
+  background-color: lightgoldenrodyellow;
+}
+
+.indoors {
+  background-color: lightsteelblue;
+}
+
+.solo {
+  background-color: tan;
 }
