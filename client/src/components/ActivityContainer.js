@@ -57,7 +57,7 @@ function ActivityContainer({
   return (
     <div>
       <div className="main">
-        <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+        <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }} size="small">
           <InputLabel id="demo-simple-select-label">Sort By:</InputLabel>
           <Select
             labelId="demo-simple-select-label"
@@ -73,7 +73,7 @@ function ActivityContainer({
         </FormControl>
 
         {/* <Box sx={{ minWidth: 120 }}> */}
-        <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+        <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }} size="small">
           <InputLabel id="demo-simple-select-label">City</InputLabel>
           <Select
             labelId="demo-simple-select-label"
@@ -109,7 +109,7 @@ function ActivityContainer({
           <TextField
             id="outlined-basic"
             label="Activity Name"
-            variant="outlined"
+            variant="standard"
             size="small"
             type="text"
             name="name"
@@ -118,23 +118,23 @@ function ActivityContainer({
           ></TextField>
           {/* <input type="submit" value="Submit"></input> */}
         </form>
-      </div>
+   
 
       <br></br>
       <Button
-          size="small"
+          size="medium"
           color="primary"
-          variant="outlined"
+          variant="text"
           onClick={() => handleShowActivities()}
         >
           Show Saved Activities
         </Button>
 
-      <div className="button">
+   
         <Button
-          size="small"
+          size="medium"
           color="primary"
-          variant="outlined"
+          variant="text"
           onClick={() => clearSearch()}
         >
           Clear Search
