@@ -2,7 +2,6 @@ import '../App.css';
 import { Route, Switch, useHistory } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import ActivityContainer from './ActivityContainer';
-import NavBar from './NavBar';
 import SignIn from "./SignIn";
 import SignUp from './SignUp';
 import Header from './Header';
@@ -147,14 +146,10 @@ const filteredActivities = sortedActivities.filter((activity) => {
 
   return (
     <div className="App">
-      <Header user ={user}
+      <Header user ={user} setUser={setUser}
       /> 
-      <NavBar user ={user} setUser={setUser}/>
       <Switch>
-        {/* Will need to comment below SignIn out and uncomment the if statement above once auth is finished */}
-        {/* <Route exact path = "/"> 
-          <SignIn onSignIn={setUser}/> */}
-        {/* </Route> */}
+       
         <Route exact path = "/signup#">
           <SignUp/>
         </Route>
@@ -181,23 +176,7 @@ const filteredActivities = sortedActivities.filter((activity) => {
             faveActivities={faveActivities}
           />
         </Route>
-        {/* <Route exact path = "/myActivities">
-          <MyActivities 
-            activities={myActivities}
-            sortBy={sortBy} 
-            setSortBy={setSortBy}
-            handleSearch={handleSearch}
-            searchTerm={searchTerm}
-            setSearchTerm={setSearchTerm}
-            filterBy={filterBy}
-            setFilterBy={setFilterBy}
-            handleDeleteActivity={handleDeleteActivity}
-            addMyActivities={handleAddMyActivities}
-            setMyActivities={setMyActivities}
-            handleShowActivities={handleShowMyActivities}
-            faveActivities={faveActivities}
-          />
-        </Route> */}
+        
         <Route exact path = "/addActivity">
           <AddActivity
           activities = {activities}

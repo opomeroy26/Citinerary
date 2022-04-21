@@ -48,6 +48,6 @@ ActiveRecord::Schema.define(version: 2022_04_21_151908) do
 
   add_foreign_key "activities", "locations"
   add_foreign_key "activities", "users"
-  add_foreign_key "activity_categories", "activities"
-  add_foreign_key "activity_categories", "categories"
+  # add_foreign_key "activity_categories", "activities"
+  # add_foreign_key "activity_categories", "categories"
 end
