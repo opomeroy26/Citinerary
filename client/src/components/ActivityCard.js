@@ -36,6 +36,14 @@ function ActivityCard({ activity, category, handleDeleteActivity, addMyActivitie
     }
   }
 
+  function removeActivity(e){
+    e.stopPropagation()
+    if(activity.like === true){
+      activity.like = false
+      addMyActivities(activity);
+    }
+  }
+
   const catName = category.map(cat => cat.name + " ")
   const catImg = category.map(cat => cat.category_icon)
 
@@ -75,7 +83,9 @@ function ActivityCard({ activity, category, handleDeleteActivity, addMyActivitie
       <CardActions>
         <Button onClick={(e) => handleDelete(e)} size="small">Delete</Button>
         {/* <Button onClick={(e) => addActivity(e)} size="small">Add to My Activities</Button> */}
-        <Button onClick={(e) => addActivity(e)} size="small">{activity.like === true ? "Remove from My Activities" : "Add to My Activities"}</Button>
+        {/* <Button onClick={(e) => addActivity(e)} size="small">{activity.like === true ? "Remove from My Activities" : "Add to My Activities"}</Button> */}
+        <Button onClick={(e) => addActivity(e)} size="small">Add to My Activities</Button>
+        <Button onClick={(e) => removeActivity(e)} size="small">Remove</Button>
       </CardActions>
     </React.Fragment>
   );

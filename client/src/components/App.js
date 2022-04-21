@@ -117,22 +117,24 @@ const filteredActivities = sortedActivities.filter((activity) => {
     return activity.like === true
   })
 
-  function handleShowActivities(){
+  function handleShowMyActivities(){
     setActivities(faveActivities)
   }
 
+  // Update User
   function handleUpdateUser(updatedUser) {
     console.log("updating user", updatedUser)
     setUser(updatedUser)
   }
 
+  // Add activity form 
   function handleAddToActivities(activityForm) {
     console.log(activityForm)
     setActivities([...activities, activityForm])
   }
 
 
-    // Clear Search -- This can maybe be moved down a level to ActivityContainer
+    // Clear Search -- This can maybe be moved down a level to ActivityContainer, or refactored because the fetch is repeated
     function resetFetch(){
       fetch('http://localhost:3000/activities')
       .then(response => response.json())
@@ -142,9 +144,7 @@ const filteredActivities = sortedActivities.filter((activity) => {
     function clearSearch(){
       setSearchTerm("")
       resetFetch()
-      console.log('test clear')
     }
-
 
   return (
     <div className="App">
@@ -178,7 +178,7 @@ const filteredActivities = sortedActivities.filter((activity) => {
             handleDeleteActivity={handleDeleteActivity}
             addMyActivities={handleAddMyActivities}
             clearSearch={clearSearch}
-            handleShowActivities={handleShowActivities}
+            handleShowActivities={handleShowMyActivities}
           />
         </Route>
         <Route exact path = "/myActivities">
