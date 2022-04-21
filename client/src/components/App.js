@@ -60,7 +60,7 @@ function App() {
 
 
   function handleAddMyActivities(activity) {
-    const newMyActivities = activities.filter (activity => activity.like === true)
+    const newMyActivities = activities.map(activity1 => activity1.id === activity.id ? activity : activity1);
     console.log(newMyActivities)
       fetch(`http://localhost:3000/activities/${activity.id}`, {
         method: 'PATCH',
@@ -70,9 +70,22 @@ function App() {
         body: JSON.stringify(activity)
       })
       .then (response => response.json())
-      .then(() => setMyActivities(newMyActivities))
-      // .then(setMyActivities([...myActivities, newMyActivities]))
+      .then(() => setActivities(newMyActivities))
     }
+
+    function handleRemoveMyActivities(activity) {
+      const newMyActivities = activities.filter (activity => activity.like === true)
+      console.log(newMyActivities)
+        fetch(`http://localhost:3000/activities/${activity.id}`, {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json'
+          }, 
+          body: JSON.stringify(activity)
+        })
+        .then (response => response.json())
+        .then(() => setActivities(newMyActivities))
+      }
 
   useEffect(() => {
     // auto-login
@@ -149,7 +162,6 @@ const filteredActivities = sortedActivities.filter((activity) => {
       <Header user ={user} setUser={setUser}
       /> 
       <Switch>
-       
         <Route exact path = "/signup#">
           <SignUp/>
         </Route>
@@ -173,6 +185,7 @@ const filteredActivities = sortedActivities.filter((activity) => {
             addMyActivities={handleAddMyActivities}
             clearSearch={clearSearch}
             handleShowActivities={handleShowMyActivities}
+            handleRemoveMyActivities={handleRemoveMyActivities}
             faveActivities={faveActivities}
           />
         </Route>

@@ -16,7 +16,8 @@ function ActivityCard({
   addMyActivities, 
   setMyActivities, 
   handleShowActivities,
-  faveActivities
+  faveActivities, 
+  handleRemoveMyActivities
   }) {
 
 
@@ -24,35 +25,25 @@ function ActivityCard({
     e.stopPropagation()
     handleDeleteActivity(activity);
   }
-  // function addActivity(e){
-  //   e.stopPropagation()
-  //   activity.like = true
-  //   addMyActivities(activity);
-  //   // console.log(activity)
-  // }
 
   function addActivity(e){
     e.stopPropagation()
     if (activity.like === false ){
     activity.like = true
     addMyActivities(activity);
-    // } else {
-    //   activity.like = false
-    //   addMyActivities(!activity)
     }
   }
+
+  
 
   function removeActivity(e, faveActivities){
     e.stopPropagation()
     if(activity.like === true){
       activity.like = false
-      addMyActivities(activity);
+      handleRemoveMyActivities(activity);
       handleShowActivities(faveActivities)
     }
   }
-
-  // const catName = category.map(cat => cat.name + " ")
-  // const catImg = category.map(cat => cat.category_icon)
 
   const bull = (
     <Box
@@ -93,10 +84,9 @@ function ActivityCard({
       </CardContent>
       <CardActions>
         <Button onClick={(e) => handleDelete(e)} size="small">Delete</Button>
-        {/* <Button onClick={(e) => addActivity(e)} size="small">Add to My Activities</Button> */}
-        {/* <Button onClick={(e) => addActivity(e)} size="small">{activity.like === true ? "Remove from My Activities" : "Add to My Activities"}</Button> */}
-        <Button onClick={(e) => addActivity(e)} size="small">Add to My Activities</Button>
-        <Button onClick={(e) => removeActivity(e)} size="small">Remove</Button>
+        {/* <Button onClick={(e) => addActivity(e)} size="small">Add to My Activities</Button>
+        <Button onClick={(e) => removeActivity(e)} size="small">Remove</Button> */}
+        <Button onClick={activity.like === true ? (e) => removeActivity(e) : (e) => addActivity(e)} size="small">{activity.like === true ? "Remove From Saved" : "Add to Saved"}</Button>
       </CardActions>
     </React.Fragment>
   );

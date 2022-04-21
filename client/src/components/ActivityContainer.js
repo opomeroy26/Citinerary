@@ -24,7 +24,8 @@ function ActivityContainer({
   addMyActivities,
   clearSearch,
   handleShowActivities,
-  faveActivities,
+  handleRemoveMyActivities,
+  faveActivities
 }) {
   // State created for MUI
   const [location, setLocation] = useState("");
@@ -38,6 +39,7 @@ function ActivityContainer({
       handleDeleteActivity={handleDeleteActivity}
       addMyActivities={addMyActivities}
       handleShowActivities={handleShowActivities}
+      handleRemoveMyActivities={handleRemoveMyActivities}
       faveActivities={faveActivities}
     />
   ));
@@ -125,7 +127,7 @@ function ActivityContainer({
           variant="outlined"
           onClick={() => handleShowActivities()}
         >
-          Show My Activities
+          Show Saved Activities
         </Button>
 
       <div className="button">
