@@ -15,15 +15,14 @@ function App() {
 
   // State
   const [activities, setActivities] = useState([]);
+  const [myActivities, setMyActivities] = useState('default');
   const [user, setUser] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState('default');
   const [filterBy, setFilterBy] = useState('default');
-
   // const [errors, setErrors] = useState([]);
-
-  console.log(activities)
-
+  const [like, setLike] = useState(false)
+  
   // Fetches
 
   // Fetch - All Activities
@@ -35,6 +34,7 @@ function App() {
 
   // Fetch - Searched Activities
   function handleSearch(e, searchTerm){
+    
     e.preventDefault()
     fetch('/search', { 
       method: 'POST', 
@@ -46,15 +46,29 @@ function App() {
     .then(activities => setActivities(activities))
   }
 
-  // Fetch - Delete Activity
+  // Fetch - DELETE Activity
   function handleDeleteActivity(activity){
     fetch(`http://localhost:3000/activities/${activity.id}`, { method: 'DELETE' })
     const newActivities = activities.filter( individualActivity => individualActivity !== activity)
     setActivities(newActivities)
-    console.log(activity)
   }
 
-  
+
+  function handleAddMyActivities(activity) {
+    const newMyActivities = activities.filter (activity => activity.like === true)
+    console.log(newMyActivities)
+      fetch(`http://localhost:3000/activities/${activity.id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json'
+        }, 
+        body: JSON.stringify(activity)
+      })
+      .then (response => response.json())
+      .then(() => setMyActivities(newMyActivities))
+      // .then(setMyActivities([...myActivities, newMyActivities]))
+    }
+
   useEffect(() => {
     // auto-login
     fetch("/me").then((r) => {
@@ -67,7 +81,6 @@ function App() {
   }, []);
 
   if (!user) return <SignIn onSignIn={setUser} /> 
-
 
 // Sort
 const sortedActivities = activities
@@ -82,17 +95,24 @@ const sortedActivities = activities
 })
 
 // Filter Location
-// const filteredActivities = sortedActivities.filter(
-//   (activity) => activity.location.city === filterBy
-// )
-
 const filteredActivities = sortedActivities.filter((activity) => {
   if (filterBy === 'default') {
     return sortedActivities 
+  } else if (filterBy === 'my activities') {
+    return activity.like === true
   } else {
     return activity.location.city === filterBy
   }
 })
+
+  // Show/Filter My Activities 
+  const faveActivities = sortedActivities.filter((activity) => {
+    return activity.like === true
+  })
+
+  function handleShowActivities(){
+    setActivities(faveActivities)
+  }
 
   function handleUpdateUser(updatedUser) {
     console.log("updating user", updatedUser)
@@ -103,6 +123,13 @@ const filteredActivities = sortedActivities.filter((activity) => {
     console.log(activityForm)
     setActivities([...activities, activityForm])
   }
+
+    // Clear Search --- TESTSTING, STILL NOT WORKING
+    function clearSearch(filteredActivities){
+      // setSearchTerm("")
+      // setActivities(filteredActivities)
+      console.log('test clear')
+    }
 
 
   return (
@@ -126,26 +153,42 @@ const filteredActivities = sortedActivities.filter((activity) => {
         <Route exact path = "/home"> 
         {/* exact path = "/" ? */}
           <ActivityContainer 
-          activities={filteredActivities}
-          sortBy={sortBy} 
-          setSortBy={setSortBy}
-          handleSearch={handleSearch}
-          searchTerm={searchTerm}
-          setSearchTerm={setSearchTerm}
-          filterBy={filterBy}
-          setFilterBy={setFilterBy}
-          handleDeleteActivity={handleDeleteActivity}
+            activities={filteredActivities}
+            sortBy={sortBy} 
+            setSortBy={setSortBy}
+            handleSearch={handleSearch}
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+            filterBy={filterBy}
+            setFilterBy={setFilterBy}
+            handleDeleteActivity={handleDeleteActivity}
+            addMyActivities={handleAddMyActivities}
+            clearSearch={clearSearch}
+            handleShowActivities={handleShowActivities}
           />
         </Route>
         <Route exact path = "/myActivities">
-          <MyActivities />
+          <MyActivities 
+            activities={myActivities}
+            sortBy={sortBy} 
+            setSortBy={setSortBy}
+            handleSearch={handleSearch}
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+            filterBy={filterBy}
+            setFilterBy={setFilterBy}
+            handleDeleteActivity={handleDeleteActivity}
+            addMyActivities={handleAddMyActivities}
+            setMyActivities={setMyActivities}
+
+          />
         </Route>
         <Route exact path = "/addActivity">
           <AddActivity
-           activities = {activities}
-           setActivities = {setActivities}
-           onAddToActivities = {handleAddToActivities}
-           user = {user} />
+          activities = {activities}
+          setActivities = {setActivities}
+          onAddToActivities = {handleAddToActivities}
+          user = {user} />
         </Route>
       </Switch>  
     </div>

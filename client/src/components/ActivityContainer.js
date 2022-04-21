@@ -2,7 +2,8 @@ import React from 'react'
 import ActivityCard from './ActivityCard'
 
 function ActivityContainer(
-  { activities, 
+  { activities,
+    setActivities, 
     searchTerm, 
     handleSearch, 
     sortBy, 
@@ -10,15 +11,20 @@ function ActivityContainer(
     setSearchTerm, 
     filterBy, 
     setFilterBy,
-    handleDeleteActivity
+    handleDeleteActivity,
+    addMyActivities,
+    clearSearch,
+    handleShowActivities
   }) {
   
+    
   const mappedActivities = activities.map(activity => (
     <ActivityCard 
       key={activity.id}
       activity={activity}
       category={activity.categories}
       handleDeleteActivity={handleDeleteActivity}
+      addMyActivities={addMyActivities}
     />
   ))
 
@@ -39,11 +45,11 @@ function ActivityContainer(
         <option value="duration">Duration</option>
       </select>
 
-
       <label>
         <strong>Filter Location:</strong>
         <select onChange={handleFilterBy} value={filterBy}>
           <option value="default">All Cities</option>
+          <option value="my activities">Show My Activities</option>
           <option value="Denver">Denver</option>
           <option value="San Francisco">San Francisco</option>
           <option value="Seattle">Seattle</option>
@@ -65,6 +71,17 @@ function ActivityContainer(
         </select>
       </label> 
 
+
+      {/* <label>
+        <strong>Show My Activities</strong>
+        <select onChange={handleFilterBy} value={filterBy}>
+          <option value="default">All Cities</option>
+          <option value="my activities">Show My Activities</option>
+          </select>
+          </label> */}
+
+      <button onClick={() => handleShowActivities()}>Show My Activities</button>
+
       <form onSubmit={(e) => handleSearch(e, searchTerm)}> 
         <label>Search By Activity Name: </label>
         <input 
@@ -75,6 +92,7 @@ function ActivityContainer(
         ></input>
 <        input type="submit" value="Submit"></input>
       </form>
+      <button onClick={() =>  clearSearch()}>Clear Search</button>
       <div className="cards">{mappedActivities}</div>
     </div> 
   )
