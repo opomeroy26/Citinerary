@@ -19,11 +19,7 @@ import SignUp from "./SignUp";
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
+      Created by Hannah and Olivia {new Date().getFullYear()} 
       {'.'}
     </Typography>
   );
@@ -137,11 +133,11 @@ export default function SignIn( {onSignIn} ) {
                 Sign In
               </Button>
               <Grid container>
-                <Grid item xs>
+                {/* <Grid item xs>
                   <Link href="#" variant="body2">
                     Forgot password?
                   </Link>
-                </Grid>
+                </Grid> */}
                 <Grid item>
                   {/* <Link href="#" variant="body2"> */}
                   <Button onClick={() => setShowLogin(false)}>
