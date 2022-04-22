@@ -64,7 +64,7 @@ function AddActivity({onAddToActivities, user}) {
   return (
     <div>
                 <Container component="main" maxWidth='xs'>
-                    <Box id= "box"
+                    <Box id= "formtitle"
                     sx={{
                         marginTop: 8,
                         display: 'flex',
@@ -81,7 +81,7 @@ function AddActivity({onAddToActivities, user}) {
                                     <TextField
                                      required 
                                      fullWidth
-                                     id = "box2"
+                                     id = "formbox"
                                      label = "Activity Name"
                                      name= "name"
                                      value= {activityForm.name}
@@ -93,7 +93,7 @@ function AddActivity({onAddToActivities, user}) {
                                 <TextField
                                      required 
                                      fullWidth
-                                     id = "box2"
+                                     id = "formbox"
                                      label = "Description"
                                      name= "description"
                                      value = {activityForm.description}
@@ -166,7 +166,7 @@ function AddActivity({onAddToActivities, user}) {
                                  </FormControl>
                                 </Grid>
                                 <Button
-                                id = "box2"
+                                id = "formbox"
                                 type="submit"
                                 fullWidth
                                 variant="contained"

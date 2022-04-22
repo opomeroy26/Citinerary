@@ -6,13 +6,10 @@ import { InputLabel, MenuItem, FormControl, Select, TextField } from "@mui/mater
 
 function ActivityContainer({
   activities,
-  setActivities,
   searchTerm,
   handleSearch,
-  sortBy,
   setSortBy,
   setSearchTerm,
-  filterBy,
   setFilterBy,
   handleDeleteActivity,
   addMyActivities,
@@ -112,7 +109,7 @@ function ActivityContainer({
         </form>
       <br></br>
       <button
-          id="button1"
+          id="saved_activities_button"
           size="medium"
           color="primary"
           variant="text"
@@ -121,7 +118,7 @@ function ActivityContainer({
           Show Saved Activities
           </button>
           <button
-            id="button2"
+            id="clear_search_button"
             size="medium"
             color="primary"
             variant="text"
@@ -193,7 +190,7 @@ function ActivityContainer({
         </form>
       <br></br>
       <button
-          id="button1"
+          id="saved_activities_button"
           size="medium"
           color="primary"
           variant="text"
@@ -202,7 +199,7 @@ function ActivityContainer({
           Show Saved Activities
       </button>
       <button
-        id="button2"
+        id="clear_search_button"
         size="medium"
         color="primary"
         variant="text"
