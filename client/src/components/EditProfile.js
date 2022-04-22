@@ -28,7 +28,7 @@ function EditProfile({user, onUpdateUser}) {
         <div>
                 <Container component="main" maxWidth='xs'>
                     <Box
-                    id= "box"
+                    id= "formtitle"
                     sx={{
                         marginTop: 8,
                         display: 'flex',
@@ -46,7 +46,7 @@ function EditProfile({user, onUpdateUser}) {
                                     required 
                                     fullWidth
                                     //  id = "username"
-                                    id = "box2"
+                                    id = "formbox"
                                     label = "Username"
                                     name= "username"
                                     value= {username}
@@ -59,7 +59,7 @@ function EditProfile({user, onUpdateUser}) {
                                 required 
                                 fullWidth
                                 //  id = "password"
-                                id = "box2"
+                                id = "formbox"
                                 label = "Password"
                                 name= "password"
                                 value = {password}
@@ -72,7 +72,7 @@ function EditProfile({user, onUpdateUser}) {
                                 required 
                                 fullWidth
                                 // id = "age"
-                                id = "box2"
+                                id = "formbox"
                                 label = "Age"
                                 name= "age"
                                 value = {age}
@@ -85,7 +85,7 @@ function EditProfile({user, onUpdateUser}) {
                                     required 
                                     fullWidth
                                     // id = "profile_picture"
-                                    id = "box2"
+                                    id = "formbox"
                                     label = "Profile Picture"
                                     name= "profile_picture"
                                     value = {profile_picture}
@@ -95,7 +95,7 @@ function EditProfile({user, onUpdateUser}) {
                                 />
                                 </Grid>
                                 <Button
-                                    id = "box2"
+                                    id = "formbox"
                                     type = "submit"
                                     fullWidth
                                     variant="contained"

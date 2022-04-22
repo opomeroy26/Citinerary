@@ -5,7 +5,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background-color: #9CB380; */
   background-color: white;
 }
 
@@ -49,75 +48,10 @@ a {
   padding: 10px;
 }
 
-.profile {
-  background-color: #F5F5F5;
-  border-bottom: 1px solid;
-  padding: 10px;
-}
-
-#profile_image{
-  border-radius: 50%;
-  filter: drop-shadow(2px 1px 2px black);
-  width: 500px;
-  height: 500px;
-  margin: 35px;
-  
-}
-
-#profile_name{
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-size: 30px;
-  margin: 0px;
-}
-
-#profile_age{
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  margin: 5px;
-}
-
-#header {
-  padding: 5px;
-  height: 100px;
-  /* text-align: center; */
-  background: rgb(112, 173, 237); 
-  color: white;
-  /* font-size: 15px; */
-}
-
-#date {
-  text-align: right
-}
-
-/* span:hover + header {
-  background-color: yellow;
-} */
-
-#welcome {
-  text-align: center;
-  margin: 0px;
-}
-  
-/* Home Page */
-
-.main {
-  /* display: inline-flex; */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.button {
-  display: inline-flex;
-  justify-content: flex-end;
-  padding: 10px;
-}
-
 /* Card colors */
 
 .outdoors {
   background-color: #6B8A69;
-  /* filter: drop-shadow(0px 8px 4px rgb(71, 102, 71)) */
 }
 
 .outdoors:hover{
@@ -126,7 +60,6 @@ a {
 
 .date {
   background-color: #A4243B;
-  /* filter: drop-shadow(0px 8px 4px rgb(150, 20, 20)) */
 }
 
 .date:hover{
@@ -157,17 +90,88 @@ a {
   filter: drop-shadow(0px 8px 4px rgb(183, 173, 128))
 }
 
-#button1 {
+/* Profile Page */
+
+.profile {
+  background-color: #F5F5F5;
+  border-bottom: 1px solid;
+  padding: 10px;
+}
+
+#profile_image{
+  border-radius: 50%;
+  filter: drop-shadow(2px 1px 2px black);
+  width: 500px;
+  height: 500px;
+  margin: 35px;
+  
+}
+
+#profile_name{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 30px;
+  margin: 0px;
+}
+
+#profile_age{
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  margin: 5px;
+}
+
+#date {
+  text-align: right
+}
+
+/* Header */
+
+#header {
+  padding: 5px;
+  height: 100px;
+  background: rgb(112, 173, 237); 
+  color: white;
+}
+
+#welcome {
+  text-align: center;
+  margin: 0px;
+}
+
+.header {
+  background-color: #9CB380;
+  filter: drop-shadow(0px 8px 9px rgb(21, 65, 21));
+  
+}
+
+#header_font {
+  color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+  
+/* Home Page */
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  display: inline-flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+/* Filter Buttons */
+#saved_activities_button {
   display: flex;
   margin-top: 7px;
   margin-left: 5px;
   margin-right: 5px;
   padding: 10px;
   color: rgb(123, 113, 113);
-  /* color: rgb(67, 62, 62); */
   border-bottom: .99px solid;
   background-color: white;
-  /* background-color: #9CB380; */
   border-top: none;
   border-left: none;
   border-right:none;
@@ -176,17 +180,15 @@ a {
 
 }
 
-#button2 {
+#clear_search_button {
   display: flex;
   margin-top: 7px;
   margin-left: 5px;
   margin-right: 5px;
   padding: 10px;
   color: rgb(123, 113, 113);
-  /* color: rgb(67, 62, 62); */
   border-bottom: .99px solid;
   background-color: white;
-  /* background-color: #9CB380; */
   border-top: none;
   border-left: none;
   border-right:none;
@@ -194,13 +196,11 @@ a {
   font-size: 16px;
 }
 
-#button1:hover {
-  /* filter: drop-shadow(0px 8px 4px rgb(84, 75, 75)) */
+#saved_activities_button:hover {
   filter: drop-shadow(0px 8px 4px rgb(145, 174, 145))
 }
 
-#button2:hover {
-  /* filter: drop-shadow(0px 8px 4px rgb(84, 75, 75)) */
+#clear_search_button:hover {
   filter: drop-shadow(0px 8px 4px rgb(145, 174, 145))
 }
 
@@ -212,33 +212,20 @@ a {
   filter: drop-shadow(0px 8px 4px rgb(145, 174, 145))
 }
 
-.header {
-  background-color: #9CB380;
-  filter: drop-shadow(0px 8px 9px rgb(21, 65, 21));
-  
-}
+/* Forms */
 
-#header_font {
-  color: white;
-  /* font-family:'Courier New', Courier, monospace */
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  /* font-family: sans-serif; */
-}
-
-#box {
-  /* color: white; */
+#formtitle {
   color: #66784f;
 }
 
-#box2{
-  /* background-color: white; */
+#formbox{
   background-color: #ccd8bc;
   color: rgb(67, 55, 55);
   font-family: "Roboto, sans-serif";
-
-  /* color: gray; */
   filter: drop-shadow(5px, 10px, 4px black)
 }
+
+/* Logo */
 
 #logo{
   height: 100px;
@@ -252,13 +239,6 @@ a {
   width: 100px;
   justify-content: center;
   margin-left: 135px;
-}
-
-#created {
-  display: flex;
-  align-items: center;
-  align-content: space-between;
-  justify-content: space-between;
 }
 
 /* Footer */

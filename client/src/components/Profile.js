@@ -26,7 +26,7 @@ function Profile({user, onUpdateUser}) {
       ) : (
         <div>
         <EditProfile user = {user} onUpdateUser= {onUpdateUser} setShowFormn ={setShowForm}/>
-        <Button  id = "box2" onClick={()=> setShowForm(true)}>
+        <Button  id = "formbox" onClick={()=> setShowForm(true)}>
           Cancel Changes
         </Button>
       </div>
