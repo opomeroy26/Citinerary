@@ -64,18 +64,18 @@ function ActivityCard({
 
   const card = (
     <React.Fragment>
-      <CardContent id= "card_hover"
+      <CardContent 
         className={activityColors}
       >
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
         </Typography>
-        <Typography variant="h5" component="div">
+        <Typography variant="h5" component="div" id="card_title">
           {activity.name}
         </Typography>
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
           Location {bull} {activity.location.city}
         </Typography>
-        <Typography variant="body2">
+        <Typography variant="body2" id = "card_description">
           Description {bull} {activity.description}
           <br />
           Duration: {activity.duration} minutes

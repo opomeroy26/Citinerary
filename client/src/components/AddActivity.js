@@ -87,7 +87,7 @@ function AddActivity({activities, setActivities, onAddToActivities, user}) {
                         alignItems: 'center',
                     }}
                     >
-                    <Typography  component="h1" variant="h5">
+                    <Typography  component="h1" variant="h5" id="card_title">
                         Add an Activity!
                     </Typography>
                         <Box component="form" noValidate sx={{ mt: 3 }} onSubmit = {handleSubmit} >
