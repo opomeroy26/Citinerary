@@ -1,17 +1,7 @@
 import React, { useState } from "react";
 import ActivityCard from "./ActivityCard";
-import { NavLink } from "react-router-dom";
-
 // MUI Imports
-import Box from "@mui/material/Box";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-
-
+import { InputLabel, MenuItem, FormControl, Select, TextField } from "@mui/material";
 
 
 function ActivityContainer({
@@ -31,6 +21,7 @@ function ActivityContainer({
   handleRemoveMyActivities,
   faveActivities
 }) {
+
   // State created for MUI
   const [location, setLocation] = useState("");
   const [sort, setSort] = useState("");
@@ -77,8 +68,6 @@ function ActivityContainer({
             <MenuItem value="duration">Duration</MenuItem>
           </Select>
         </FormControl>
-
-        {/* <Box sx={{ minWidth: 120 }}> */}
         <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }} size="small">
           <InputLabel id="demo-simple-select-label">City</InputLabel>
           <Select
@@ -108,8 +97,6 @@ function ActivityContainer({
             <MenuItem value="Boston">Boston</MenuItem>
           </Select>
         </FormControl>
-        {/* </Box> */}
-
         <form onSubmit={(e) => handleSearch(e, searchTerm)}>
           <label></label>
           <TextField
@@ -122,12 +109,8 @@ function ActivityContainer({
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           ></TextField>
-          {/* <input type="submit" value="Submit"></input> */}
         </form>
-   
-
       <br></br>
-      {/* <Button */}
       <button
           id="button1"
           size="medium"
@@ -137,20 +120,16 @@ function ActivityContainer({
         >
           Show Saved Activities
           </button>
-        {/* </Button> */}
-        {/* <Button */}
-        <button
-          id="button2"
-          size="medium"
-          color="primary"
-          variant="text"
-          onClick={() => clearSearch()}
-        >
+          <button
+            id="button2"
+            size="medium"
+            color="primary"
+            variant="text"
+            onClick={() => clearSearch()}
+          >
           Clear Search
           </button>
-        {/* </Button> */}
       </div>
-
       <div className="cards">{mappedActivities}</div>
     </div>
   ); else return (
@@ -170,8 +149,6 @@ function ActivityContainer({
             <MenuItem value="duration">Duration</MenuItem>
           </Select>
         </FormControl>
-
-        {/* <Box sx={{ minWidth: 120 }}> */}
         <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }} size="small">
           <InputLabel id="demo-simple-select-label">City</InputLabel>
           <Select
@@ -201,8 +178,6 @@ function ActivityContainer({
             <MenuItem value="Boston">Boston</MenuItem>
           </Select>
         </FormControl>
-        {/* </Box> */}
-
         <form onSubmit={(e) => handleSearch(e, searchTerm)}>
           <label></label>
           <TextField
@@ -215,12 +190,8 @@ function ActivityContainer({
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           ></TextField>
-          {/* <input type="submit" value="Submit"></input> */}
         </form>
-   
-
       <br></br>
-      {/* <Button */}
       <button
           id="button1"
           size="medium"
@@ -229,25 +200,20 @@ function ActivityContainer({
           onClick={() => handleShowActivities()}
         >
           Show Saved Activities
-          </button>
-        {/* </Button> */}
-
-   
-        {/* <Button */}
-        <button
-          id="button2"
-          size="medium"
-          color="primary"
-          variant="text"
-          onClick={() => clearSearch()}
-        >
+      </button>
+      <button
+        id="button2"
+        size="medium"
+        color="primary"
+        variant="text"
+        onClick={() => clearSearch()}
+      >
           Clear Search
-          </button>
-        {/* </Button> */}
+      </button>
       </div>
-    <div>
-      <h2>Currently no results for that activity</h2>
-    </div>
+      <div>
+        <h2>Currently no results for that activity</h2>
+      </div>
     </div>
   )
 }

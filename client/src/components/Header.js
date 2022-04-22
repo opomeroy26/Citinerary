@@ -1,18 +1,9 @@
 import React from 'react';
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
 import { useHistory } from 'react-router-dom';
-// import '../Citinerary-logos_black.png';
+// MUI imports
+import MenuIcon from '@mui/icons-material/Menu';
+import { Box, Toolbar, IconButton, Typography, Menu, Button, Tooltip, MenuItem, Avatar, Container } from '@mui/material';
 
 function Header({user, setUser}) {
 
@@ -50,11 +41,6 @@ function Header({user, setUser}) {
     history.push("/profile")
   };
 
-  const handleCloseUserMenuLogout = () => {
-    setAnchorElUser(null);
-    console.log("logout")
-  };
-
   function handleLogoutClick() {
     fetch ("/logout", {method: "DELETE"}).then((r) => {
       if (r.ok) {
@@ -77,7 +63,6 @@ function Header({user, setUser}) {
           >
             Citinerary
           </Typography>
-
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -87,7 +72,7 @@ function Header({user, setUser}) {
               onClick={handleOpenNavMenu}
               color="inherit"
             >
-              <MenuIcon />
+            <MenuIcon />
             </IconButton>
             <Menu
               id="menu-appbar"
@@ -139,9 +124,7 @@ function Header({user, setUser}) {
             >
               Add Activity
             </Button>
-            
           </Box>
-
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Profile Options">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>

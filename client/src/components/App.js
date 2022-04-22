@@ -1,5 +1,5 @@
 import '../App.css';
-import { Route, Switch, useHistory } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import ActivityContainer from './ActivityContainer';
 import SignIn from "./SignIn";
@@ -7,31 +7,18 @@ import SignUp from './SignUp';
 import Header from './Header';
 import Profile from './Profile';
 import AddActivity from './AddActivity';
-
 // MUI CSS
-import CssBaseline from '@mui/material/CssBaseline';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import Link from '@mui/material/Link';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import RemoveIcon from '@mui/icons-material/Remove';
+import { CssBaseline, Box, Typography, Container, Link, } from '@mui/material';
 
 function App() {
 
   // State
   const [activities, setActivities] = useState([]);
-  const [myActivities, setMyActivities] = useState('default');
   const [user, setUser] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState('default');
   const [filterBy, setFilterBy] = useState('default');
-  // const [errors, setErrors] = useState([]);
-  const [like, setLike] = useState(false)
-  
-  const history = useHistory()
-
-  // const [errors, setErrors] = useState([]);
 
   // Fetches
 
@@ -61,9 +48,7 @@ function App() {
     fetch(`http://localhost:3000/activities/${activity.id}`, { method: 'DELETE' })
     const newActivities = activities.filter( individualActivity => individualActivity !== activity)
     setActivities(newActivities)
-    // console.log(activity)
   }
-
 
   function handleAddMyActivities(activity) {
     const newMyActivities = activities.map(activity1 => activity1.id === activity.id ? activity : activity1);
@@ -93,8 +78,8 @@ function App() {
         .then(() => setActivities(newMyActivities))
       }
 
+//Auto-Login
   useEffect(() => {
-    // auto-login
     fetch("/me").then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user))
@@ -202,7 +187,6 @@ const filteredActivities = sortedActivities.filter((activity) => {
             onUpdateUser = {handleUpdateUser}/>
         </Route>
         <Route exact path = "/home"> 
-        {/* exact path = "/" ? */}
           <ActivityContainer 
             activities={filteredActivities}
             sortBy={sortBy} 
@@ -220,7 +204,6 @@ const filteredActivities = sortedActivities.filter((activity) => {
             faveActivities={faveActivities}
           />
         </Route>
-        
         <Route exact path = "/addActivity">
           <AddActivity
           activities = {activities}
@@ -229,8 +212,6 @@ const filteredActivities = sortedActivities.filter((activity) => {
           user = {user} />
         </Route>
       </Switch> 
-
-
       <br></br>
       <br></br>
       <Box

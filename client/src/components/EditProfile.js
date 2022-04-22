@@ -1,12 +1,6 @@
 import React, {useState} from 'react';
-
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-// import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
+//MUI imports
+import { Button, TextField, Grid, Box, Typography, Container } from '@mui/material';
 
 function EditProfile({user, onUpdateUser}) {
     const [username, setUsername] = useState(user.username)
@@ -16,10 +10,7 @@ function EditProfile({user, onUpdateUser}) {
 
 
     function handleSubmit(event){
-        // event.preventDefault();
-        // commented it out it pushes to profile page but re-freshes page briefly
-        //Take out preventDefault to push user directly back to home page after edit
-        console.log(username, password, age, profile_picture)
+        // event.preventDefault(); //commented out so it will push to profile page, but re-freshes page briefly
         fetch(`http://localhost:3000/users/${user.id}`, {
             method: 'PATCH',
             headers: {

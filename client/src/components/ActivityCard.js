@@ -1,12 +1,6 @@
-import React from 'react'
-
+import React from 'react';
 // Material UI/CSS Imports
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import {Box, Card, CardActions, CardContent, Button, Typography} from '@mui/material';
 import ParkOutlinedIcon from '@mui/icons-material/ParkOutlined';
 import ManOutlinedIcon from '@mui/icons-material/ManOutlined';
 import FavoriteOutlinedIcon from '@mui/icons-material/FavoriteOutlined';
@@ -16,15 +10,11 @@ import WcOutlinedIcon from '@mui/icons-material/WcOutlined';
 
 function ActivityCard({ 
   activity, 
-  category, 
   handleDeleteActivity, 
   addMyActivities, 
-  setMyActivities, 
   handleShowActivities,
-  faveActivities, 
   handleRemoveMyActivities
   }) {
-
 
   function handleDelete(e){
     e.stopPropagation()
@@ -38,8 +28,6 @@ function ActivityCard({
     addMyActivities(activity);
     }
   }
-
-  
 
   function removeActivity(e, faveActivities){
     e.stopPropagation()
@@ -88,13 +76,8 @@ function ActivityCard({
         </Typography>
         {icons}
       </CardContent>
-
-
-
       <CardActions>
         <Button id="card_button" onClick={(e) => handleDelete(e)} size="small">Delete</Button>
-        {/* <Button onClick={(e) => addActivity(e)} size="small">Add to My Activities</Button>
-        <Button onClick={(e) => removeActivity(e)} size="small">Remove</Button> */}
         <Button id="card_button" onClick={activity.like === true ? (e) => removeActivity(e) : (e) => addActivity(e)} size="small">{activity.like === true ? "Remove From Saved" : "Add to Saved"}</Button>
       </CardActions>
     </React.Fragment>
@@ -108,4 +91,4 @@ function ActivityCard({
 }
 
 
-export default ActivityCard
+export default ActivityCard;
