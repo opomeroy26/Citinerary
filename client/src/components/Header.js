@@ -12,7 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { useHistory } from 'react-router-dom';
-import '../Citinerary-logos_black.png';
+// import '../Citinerary-logos_black.png';
 
 function Header({user, setUser}) {
 

@@ -15,7 +15,7 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import SignUp from "./SignUp";
-import '../Citinerary-logos_black.png';
+// import '../Citinerary-logos_black.png';
 
 function Copyright(props) {
   return (
