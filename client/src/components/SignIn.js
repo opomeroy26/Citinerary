@@ -16,15 +16,13 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import SignUp from "./SignUp";
 // import '../Citinerary-logos_black.png';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 function Copyright(props) {
   return (
-    <div>
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      Created by Hannah and Olivia {new Date().getFullYear()} 
-      {'.'}
-    </Typography>
-    <img id="logo_sign" src={require ('../Citinerary-logos_black.png')} alt="logo"/> 
+    <div id="created">
+    <a href= "https://github.com/opomeroy26" target="_blank" rel="noreferrer"><GitHubIcon/> Olivia Pomeroy </a>
+    <a href= "https://github.com/HannahGlazier" target="_blank" rel="noreferrer"><GitHubIcon/> Hannah Glazier </a>
     </div>
     
   );

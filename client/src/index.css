@@ -234,3 +234,10 @@ a {
   justify-content: center;
   margin-left: 135px;
 }
+
+#created {
+  display: flex;
+  align-items: center;
+  align-content: space-between;
+  justify-content: space-between;
+}
