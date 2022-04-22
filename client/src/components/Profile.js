@@ -1,10 +1,8 @@
 import React, {useState} from 'react'
 //MUI imports
-import Button from '@mui/material/Button';
 import EditProfile from './EditProfile';
 import EditIcon from '@mui/icons-material/Edit';
-import IconButton from '@mui/material/IconButton';
-import Tooltip from '@mui/material/Tooltip';
+import { Button, Tooltip, IconButton } from '@mui/material';
 
 function Profile({user, onUpdateUser}) {
   const [showForm, setShowForm] = useState(true)
