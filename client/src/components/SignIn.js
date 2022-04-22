@@ -15,13 +15,18 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import SignUp from "./SignUp";
+import '../Citinerary-logos_black.png';
 
 function Copyright(props) {
   return (
+    <div>
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       Created by Hannah and Olivia {new Date().getFullYear()} 
       {'.'}
     </Typography>
+    <img id="logo_sign" src={require ('../Citinerary-logos_black.png')} alt="logo"/> 
+    </div>
+    
   );
 }
 
@@ -89,6 +94,8 @@ export default function SignIn( {onSignIn} ) {
               alignItems: 'center',
             }}
           >
+            {/* <img id="logo_sign" src={require ('../Citinerary-logos_black.png')} alt="logo"/> */}
+            <Typography component="h1" variant= "h2"> Citinerary </Typography>
             <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
               {/* <LockOutlinedIcon /> */}
             </Avatar>
@@ -120,6 +127,7 @@ export default function SignIn( {onSignIn} ) {
                 onChange = {(e) => setPassword(e.target.value)}
                 autoComplete="current-password"
               />
+              {/* <img id="logo_sign" src={require ('../Citinerary-logos_black.png')} alt="logo"/>  */}
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
@@ -130,6 +138,7 @@ export default function SignIn( {onSignIn} ) {
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >
+
                 Sign In
               </Button>
               <Grid container>

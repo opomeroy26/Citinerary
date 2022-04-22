@@ -78,24 +78,25 @@ function AddActivity({activities, setActivities, onAddToActivities, user}) {
   return (
     <div>
                 <Container component="main" maxWidth='xs'>
-                    <Box
+                    <Box id= "box"
                     sx={{
                         marginTop: 8,
                         display: 'flex',
+            
                         flexDirection: 'column',
                         alignItems: 'center',
                     }}
                     >
-                    <Typography component="h1" variant="h5">
-                        Add a Personalized Activity
+                    <Typography  component="h1" variant="h5">
+                        Add an Activity!
                     </Typography>
                         <Box component="form" noValidate sx={{ mt: 3 }} onSubmit = {handleSubmit} >
                             <Grid container spacing={2}>
-                                <Grid item xs={12}>
+                                <Grid item xs={12} >
                                     <TextField
                                      required 
                                      fullWidth
-                                     id = "name"
+                                     id = "box2"
                                      label = "Activity Name"
                                      name= "name"
                                      value= {activityForm.name}
@@ -107,7 +108,7 @@ function AddActivity({activities, setActivities, onAddToActivities, user}) {
                                 <TextField
                                      required 
                                      fullWidth
-                                     id = "description"
+                                     id = "box2"
                                      label = "Description"
                                      name= "description"
                                      value = {activityForm.description}
@@ -183,6 +184,7 @@ function AddActivity({activities, setActivities, onAddToActivities, user}) {
                                  </FormControl>
                                 </Grid>
                                 <Button
+                                id = "box2"
                                 type="submit"
                                 fullWidth
                                 variant="contained"

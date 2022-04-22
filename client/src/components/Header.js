@@ -12,6 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { useHistory } from 'react-router-dom';
+import '../Citinerary-logos_black.png';
 
 function Header({user, setUser}) {
 
@@ -66,9 +67,11 @@ function Header({user, setUser}) {
     <AppBar class="header" position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
+          <img id="logo" src={require ('../Citinerary-logos_black.png')} alt="logo"/>
           <Typography
             variant="h3"
             noWrap
+            id= "header_font"
             component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
@@ -116,6 +119,7 @@ function Header({user, setUser}) {
             variant="h4"
             noWrap
             component="div"
+            id= "header_font"
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
           >
             Citinerary
@@ -148,6 +152,7 @@ function Header({user, setUser}) {
             variant="p"
             noWrap
             component="div"
+            id = "header_font"
           >
             Welcome {user.username}!
           </Typography>

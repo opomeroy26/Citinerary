@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background-color: #9CB380; */
+  background-color: white;
 }
 
 code {
@@ -26,12 +28,14 @@ a {
   justify-content: center;
   padding: 20px;
   margin:20px;
+  filter: drop-shadow(5px 9px 4px rgb(89, 119, 89))
 }
 
 .card {
   background-color: #5F6062;
   color: white;
 }
+
 
 .spacing {
   padding: 10px;
@@ -70,9 +74,9 @@ a {
   text-align: right
 }
 
-span:hover + header {
+/* span:hover + header {
   background-color: yellow;
-}
+} */
 
 #welcome {
   text-align: center;
@@ -82,8 +86,10 @@ span:hover + header {
 /* Home Page */
 
 .main {
-  display: inline-flex;
+  /* display: inline-flex; */
+  display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .button {
@@ -96,26 +102,44 @@ span:hover + header {
 
 .outdoors {
   background-color: #6B8A69;
+  /* filter: drop-shadow(0px 8px 4px rgb(71, 102, 71)) */
+}
+
+.outdoors:hover{
+  filter: drop-shadow(0px 8px 4px rgb(131, 193, 139))
 }
 
 .date {
   background-color: #A4243B;
+  /* filter: drop-shadow(0px 8px 4px rgb(150, 20, 20)) */
+}
+
+.date:hover{
+  filter: drop-shadow(0px 8px 4px rgb(234, 111, 97))
 }
 
 .friend{
   background-color: #9A90A6;
 }
 
+.friend:hover{
+  filter: drop-shadow(0px 8px 4px rgb(72, 46, 89))
+}
+
 .indoors {
   background-color: #D0D9C5;
 }
 
+.indoors:hover{
+  filter: drop-shadow(0px 8px 4px rgb(70, 101, 73))
+}
+
 .solo {
   background-color: #F5D6BA;
-  
+}
 
-  
- 
+.solo:hover{
+  filter: drop-shadow(0px 8px 4px rgb(183, 173, 128))
 }
 
 #button1 {
@@ -125,8 +149,10 @@ span:hover + header {
   margin-right: 5px;
   padding: 10px;
   color: rgb(123, 113, 113);
-  border-bottom: 1px solid;
+  /* color: rgb(67, 62, 62); */
+  border-bottom: .99px solid;
   background-color: white;
+  /* background-color: #9CB380; */
   border-top: none;
   border-left: none;
   border-right:none;
@@ -142,17 +168,69 @@ span:hover + header {
   margin-right: 5px;
   padding: 10px;
   color: rgb(123, 113, 113);
-  border-bottom: 1px solid;
+  /* color: rgb(67, 62, 62); */
+  border-bottom: .99px solid;
   background-color: white;
+  /* background-color: #9CB380; */
   border-top: none;
   border-left: none;
   border-right:none;
   font-family: 'Roboto', sans-serif;
-  font-size: 16px
+  font-size: 16px;
+}
+
+#button1:hover {
+  /* filter: drop-shadow(0px 8px 4px rgb(84, 75, 75)) */
+  filter: drop-shadow(0px 8px 4px rgb(145, 174, 145))
+}
+
+#button2:hover {
+  /* filter: drop-shadow(0px 8px 4px rgb(84, 75, 75)) */
+  filter: drop-shadow(0px 8px 4px rgb(145, 174, 145))
+}
+
+#card_button {
+  color: gray;
+}
+
+#card_button:hover {
+  filter: drop-shadow(0px 8px 4px rgb(145, 174, 145))
 }
 
 .header {
   background-color: #9CB380;
-  filter: drop-shadow(0px 8px 4px rgb(145, 174, 145) );
+  filter: drop-shadow(0px 8px 9px rgb(21, 65, 21));
   
+}
+
+#header_font {
+  color: white
+}
+
+#box {
+  /* color: white; */
+  color: #66784f;
+}
+
+#box2{
+  /* background-color: white; */
+  background-color: #ccd8bc;
+  color: black;
+
+  /* color: gray; */
+  filter: drop-shadow(5px, 10px, 4px black)
+}
+
+#logo{
+  height: 100px;
+  width: 100px; 
+  display: flex;
+  margin:0px;
+}
+
+#logo_sign{
+  height:100px;
+  width: 100px;
+  justify-content: center;
+  margin-left: 180px;
 }
