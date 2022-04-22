@@ -28,6 +28,7 @@ function EditProfile({user, onUpdateUser}) {
         <div>
                 <Container component="main" maxWidth='xs'>
                     <Box
+                    id= "box"
                     sx={{
                         marginTop: 8,
                         display: 'flex',
@@ -42,54 +43,59 @@ function EditProfile({user, onUpdateUser}) {
                             <Grid container spacing={2}>
                                 <Grid item xs={12}>
                                     <TextField
-                                     required 
-                                     fullWidth
-                                     id = "username"
-                                     label = "Username"
-                                     name= "username"
-                                     value= {username}
-                                     onChange = {(e) => setUsername(e.target.value)}
-                                     autoComplete="username"
-                                     />
+                                    required 
+                                    fullWidth
+                                    //  id = "username"
+                                    id = "box2"
+                                    label = "Username"
+                                    name= "username"
+                                    value= {username}
+                                    onChange = {(e) => setUsername(e.target.value)}
+                                    autoComplete="username"
+                                    />
                                 </Grid>
                                 <Grid item xs={12}>
                                 <TextField
-                                     required 
-                                     fullWidth
-                                     id = "password"
-                                     label = "Password"
-                                     name= "password"
-                                     value = {password}
-                                     onChange = {(e) => setPassword(e.target.value.replace(/[^A-Za-z]/g, "*"))}
-                                     autoComplete="password"
-                                     />
+                                required 
+                                fullWidth
+                                //  id = "password"
+                                id = "box2"
+                                label = "Password"
+                                name= "password"
+                                value = {password}
+                                onChange = {(e) => setPassword(e.target.value.replace(/[^A-Za-z]/g, "*"))}
+                                autoComplete="password"
+                                    />
                                 </Grid>
                                 <Grid item xs={12}>
                                 <TextField
-                                     required 
-                                     fullWidth
-                                     id = "age"
-                                     label = "Age"
-                                     name= "age"
-                                     value = {age}
-                                     onChange = {(e) => setAge(e.target.value)}
-                                     autoComplete="age"
-                                     />
+                                required 
+                                fullWidth
+                                // id = "age"
+                                id = "box2"
+                                label = "Age"
+                                name= "age"
+                                value = {age}
+                                onChange = {(e) => setAge(e.target.value)}
+                                autoComplete="age"
+                                />
                                 </Grid>
                                 <Grid item xs={12}>
                                 <TextField
-                                     required 
-                                     fullWidth
-                                     id = "profile_picture"
-                                     label = "Profile Picture"
-                                     name= "profile_picture"
-                                     value = {profile_picture}
-                                     onChange = {(e) => setProfilePic(e.target.value)}
-                                     autoComplete="profile_picture"
+                                    required 
+                                    fullWidth
+                                    // id = "profile_picture"
+                                    id = "box2"
+                                    label = "Profile Picture"
+                                    name= "profile_picture"
+                                    value = {profile_picture}
+                                    onChange = {(e) => setProfilePic(e.target.value)}
+                                    autoComplete="profile_picture"
 
-                                     />
+                                />
                                 </Grid>
                                 <Button
+                                    id = "box2"
                                     type = "submit"
                                     fullWidth
                                     variant="contained"
