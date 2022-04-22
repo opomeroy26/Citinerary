@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-    skip_before_action :authorize, only: [:create, :update]
+    skip_before_action :authorize, only: [ :create, :update] 
+    # by putting :show, stops the not authorized message but logs you out at refresh page 
 
     #Gets list of Users
     def index 

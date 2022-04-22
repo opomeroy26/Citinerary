@@ -64,7 +64,7 @@ function ActivityCard({
 
   const card = (
     <React.Fragment>
-      <CardContent
+      <CardContent id= "card_hover"
         className={activityColors}
       >
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
@@ -92,10 +92,10 @@ function ActivityCard({
 
 
       <CardActions>
-        <Button onClick={(e) => handleDelete(e)} size="small">Delete</Button>
+        <Button id="card_button" onClick={(e) => handleDelete(e)} size="small">Delete</Button>
         {/* <Button onClick={(e) => addActivity(e)} size="small">Add to My Activities</Button>
         <Button onClick={(e) => removeActivity(e)} size="small">Remove</Button> */}
-        <Button onClick={activity.like === true ? (e) => removeActivity(e) : (e) => addActivity(e)} size="small">{activity.like === true ? "Remove From Saved" : "Add to Saved"}</Button>
+        <Button id="card_button" onClick={activity.like === true ? (e) => removeActivity(e) : (e) => addActivity(e)} size="small">{activity.like === true ? "Remove From Saved" : "Add to Saved"}</Button>
       </CardActions>
     </React.Fragment>
   );
