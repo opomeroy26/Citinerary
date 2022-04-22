@@ -241,3 +241,9 @@ a {
   align-content: space-between;
   justify-content: space-between;
 }
+
+/* Footer */
+.footer {
+  opacity: 0.7;
+  position: sticky;
+}

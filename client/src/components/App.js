@@ -7,7 +7,15 @@ import SignUp from './SignUp';
 import Header from './Header';
 import Profile from './Profile';
 import AddActivity from './AddActivity';
-import MyActivities from './MyActivities';
+
+// MUI CSS
+import CssBaseline from '@mui/material/CssBaseline';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import Link from '@mui/material/Link';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import RemoveIcon from '@mui/icons-material/Remove';
 
 function App() {
 
@@ -24,8 +32,6 @@ function App() {
   const history = useHistory()
 
   // const [errors, setErrors] = useState([]);
-
-  // console.log(activities)
 
   // Fetches
 
@@ -157,6 +163,31 @@ const filteredActivities = sortedActivities.filter((activity) => {
       resetFetch()
     }
 
+    // Footer
+    function Footer() {
+      return (
+        <>
+          <Typography variant="body2" color="text.secondary">
+            Olivia Pomeroy 
+            {" "}
+            <Link color="inherit" href="https://github.com/opomeroy26">
+              <GitHubIcon/>
+            </Link>{' '}
+            {"   |   "}
+            Hannah Glazier
+            {" "}
+            <Link color="inherit" href="https://github.com/HannahGlazier">
+            <GitHubIcon/>
+            </Link>{' '}
+            <br></br>
+            {new Date().getFullYear()}
+            {'.'}
+          </Typography>
+        </>
+      );
+    }
+
+
   return (
     <div className="App">
       <Header user ={user} setUser={setUser}
@@ -197,7 +228,26 @@ const filteredActivities = sortedActivities.filter((activity) => {
           onAddToActivities = {handleAddToActivities}
           user = {user} />
         </Route>
-      </Switch>  
+      </Switch> 
+
+
+      <br></br>
+      <br></br>
+      <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '100vh',
+      }}
+    >
+      <CssBaseline />
+        <Container className="footer" maxWidth="sm">
+          <Typography variant="body2" color="text.secondary" >
+            -Developed By- 
+          </Typography>
+          <Footer />
+        </Container>
+      </Box>
     </div>
   );
 }

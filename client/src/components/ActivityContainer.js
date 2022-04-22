@@ -10,6 +10,9 @@ import Select from "@mui/material/Select";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 
+
+
+
 function ActivityContainer({
   activities,
   setActivities,
@@ -132,8 +135,6 @@ function ActivityContainer({
           Show Saved Activities
           </button>
         {/* </Button> */}
-
-   
         {/* <Button */}
         <button
           id="button2"
@@ -154,28 +155,3 @@ function ActivityContainer({
 
 export default ActivityContainer;
 
-// {/* <label>
-//   <strong>Filter Location:</strong>
-//   <select onChange={handleFilterBy} value={filterBy}>
-//     <option value="default">All Cities</option>
-//     {/* <option value="my activities">Show My Activities</option> */}
-//     {/* <option value="Denver">Denver</option>
-//     <option value="San Francisco">San Francisco</option>
-//     <option value="Seattle">Seattle</option>
-//     <option value="Los Angeles">Los Angeles</option>
-//     <option value="Austin">Austin</option>
-//     <option value="New York City">New York City</option>
-//     <option value="Chicago">Chicago</option>
-//     <option value="Houston">Houston</option>
-//     <option value="Boulder">Boulder</option>
-//     <option value="New Orleans">New Orleans</option>
-//     <option value="San Diego">San Diego</option>
-//     <option value="Phoenix">Phoenix</option>
-//     <option value="Dallas">Dallas</option>
-//     <option value="Philadelphia">Philadelphia</option>
-//     <option value="Miami">Miami</option>
-//     <option value="Atlanta">Atlanta</option>
-//     <option value="Portland">Portland</option>
-//     <option value="Boston">Boston</option>
-//   </select> */}
-// {/* </label>  */}
