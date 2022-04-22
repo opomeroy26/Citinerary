@@ -241,6 +241,13 @@ a {
   margin-left: 135px;
 }
 
+#created{
+  display: flex;
+  align-items: center;
+  align-content: space-between;
+  justify-content: space-between;
+}
+
 /* Footer */
 .footer {
   opacity: 0.7;
