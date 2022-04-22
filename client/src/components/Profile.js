@@ -4,6 +4,8 @@ import EditProfile from './EditProfile';
 import EditIcon from '@mui/icons-material/Edit';
 import { Breadcrumbs } from '@mui/material';
 import { Typography } from '@mui/material';
+import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
 
 
 function Profile({user, onUpdateUser}) {
@@ -14,22 +16,26 @@ function Profile({user, onUpdateUser}) {
 
   
   return (
-    <div>
+    <div >
       {showForm ? (
-        <div>
+        <div className="profile">
         <img id = "profile_image" alt={user.username} src={user.profile_picture}/>
         <h5 id="profile_name" >{user.username}</h5>
         <p id="profile_age">{user.age} years old</p>
         <p id="profile_age">Today's date is {date}</p>
-        <EditIcon onClick={()=> setShowForm(false)}/>
+        <Tooltip title="Edit">
+        <IconButton>
+          <EditIcon onClick={()=> setShowForm(false)}/>
+        </IconButton>
+        </Tooltip>
         </div>
       ) : (
         <div>
         <EditProfile user = {user} onUpdateUser= {onUpdateUser} setShowFormn ={setShowForm}/>
-        <Button onClick={()=> setShowForm(true)}>
+        <Button  id = "box2" onClick={()=> setShowForm(true)}>
           Cancel Changes
         </Button>
-       </div>
+      </div>
       )}
       </div>
 
