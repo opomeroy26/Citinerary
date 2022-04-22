@@ -1,5 +1,5 @@
 # Citinerary
-Citinerary is an application that allows users to view various activities in different cities in order to plan out trips or fun activities in their hometown. 
+Citinerary is an application that allows users to view various activities in different cities in order to plan out trips or fun activities in their hometown. Please find our application deployed and linked [Here](https://powerful-harbor-52595.herokuapp.com/).
 
 ## User Stories
 Users are able to create an account and login from an initial sign in page. Once they are signed in, users are able to view activities in different cities and filter these by default, activity name, duration, and city. Activities can also be searched by name. Users are also able to add activities to their own activity list. Users have their own profile page and are also able to add personalized activities to the site. 
