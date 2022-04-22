@@ -1,19 +1,15 @@
 import React, {useState} from 'react'
+//MUI imports
 import Button from '@mui/material/Button';
 import EditProfile from './EditProfile';
 import EditIcon from '@mui/icons-material/Edit';
-import { Breadcrumbs } from '@mui/material';
-import { Typography } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
-
 
 function Profile({user, onUpdateUser}) {
   const [showForm, setShowForm] = useState(true)
   const current = new Date();
   const date = `${current.getMonth()+1}/${current.getDate()}/${current.getFullYear()}`;
-  
-
   
   return (
     <div >
@@ -38,7 +34,6 @@ function Profile({user, onUpdateUser}) {
       </div>
       )}
       </div>
-
     )}
 
-export default Profile
+export default Profile;

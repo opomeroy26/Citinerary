@@ -1,18 +1,10 @@
-import React from 'react'
-import ActivityCard from './ActivityCard'
+import React from 'react';
+import ActivityCard from './ActivityCard';
 
 function MyActivities({ 
   activities, 
-  searchTerm, 
-  handleSearch, 
-  sortBy, 
-  setSortBy, 
-  setSearchTerm, 
-  filterBy, 
-  setFilterBy,
   handleDeleteActivity,
   addMyActivities, 
-  handleAddMyActivities, 
   setMyActivities,
   handleShowActivities,
   faveActivities
@@ -34,10 +26,9 @@ function MyActivities({
         faveActivities={faveActivities}
       />
     ))
-
     return (
     <div>{mappedActivities}</div>
   )
 }
 
-export default MyActivities
+export default MyActivities;

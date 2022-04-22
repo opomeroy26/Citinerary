@@ -1,21 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-// import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { InputLabel, listItemSecondaryActionClasses } from '@mui/material';
-import { Select } from '@mui/material';
-import { FormControl } from '@mui/material';
-import { MenuItem } from '@mui/material';
-import { getFormControlUnstyledUtilityClasses } from '@mui/base';
+//MUI Imports
+import { Button, TextField, Grid, Box, Typography, Container, InputLabel, Select, FormControl, MenuItem } from '@mui/material';
 
-function AddActivity({activities, setActivities, onAddToActivities, user}) {
+
+function AddActivity({onAddToActivities, user}) {
     const [locations, setLocations] = useState([])
-
     const history = useHistory()
 
     
@@ -36,7 +26,6 @@ function AddActivity({activities, setActivities, onAddToActivities, user}) {
         location_id: '',
         duration: '',
         category_name:'',
-        // category_icon:'',
         user_id: user.id 
     }
 
@@ -58,7 +47,6 @@ function AddActivity({activities, setActivities, onAddToActivities, user}) {
             user_id:user.id,
             location_id: activityForm.location_id,
             category_name: activityForm.category_name,
-            // category_icon: 
         }
         fetch('http://localhost:3000/activities', {
             method: "POST",
@@ -73,8 +61,6 @@ function AddActivity({activities, setActivities, onAddToActivities, user}) {
         .then(history.push("/home"))
     }
 
-
-
   return (
     <div>
                 <Container component="main" maxWidth='xs'>
@@ -82,7 +68,6 @@ function AddActivity({activities, setActivities, onAddToActivities, user}) {
                     sx={{
                         marginTop: 8,
                         display: 'flex',
-            
                         flexDirection: 'column',
                         alignItems: 'center',
                     }}
@@ -127,7 +112,6 @@ function AddActivity({activities, setActivities, onAddToActivities, user}) {
                                     onChange = {handleChange}
                                     label = "Location_Id"
                                     >
-
                                 <MenuItem value={locationId[0]}>{locationCity[0]}</MenuItem>
                                 <MenuItem value={locationId[1]}>{locationCity[1]}</MenuItem>
                                 <MenuItem value={locationId[3]}>{locationCity[2]}</MenuItem>
@@ -145,14 +129,12 @@ function AddActivity({activities, setActivities, onAddToActivities, user}) {
                                 <MenuItem value={locationId[15]}>{locationCity[14]}</MenuItem>
                                 <MenuItem value={locationId[16]}>{locationCity[15]}</MenuItem>
                                 <MenuItem value={locationId[17]}>{locationCity[16]}</MenuItem> 
-
                                  </Select>
                                  </FormControl>
                                 <FormControl variant ="standard" sx={{ m:2, minWidth: 400}}>
                                 <InputLabel id="demo-simple-select-standard-label">Duration</InputLabel>
                                 <Select 
                                     labelId= "demo-simple-select-standard-label"
-                                    // id="demo-simple-select-standard"
                                     name= "duration"
                                     value = {activityForm.duration}
                                     onChange={handleChange}
@@ -196,8 +178,7 @@ function AddActivity({activities, setActivities, onAddToActivities, user}) {
                         </Box>
                 </Container>
         </div>
-
   )
 }
 
-export default AddActivity
+export default AddActivity;
