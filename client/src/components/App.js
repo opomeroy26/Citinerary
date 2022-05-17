@@ -24,7 +24,7 @@ function App() {
 
   // Fetch - All Activities
   useEffect(() => {
-    fetch('http://localhost:3000/activities')
+    fetch('/activities')
     .then(response => response.json())
     .then(activities => setActivities(activities))
   }, [])
@@ -45,7 +45,7 @@ function App() {
 
   // Fetch - DELETE Activity
   function handleDeleteActivity(activity){
-    fetch(`http://localhost:3000/activities/${activity.id}`, { method: 'DELETE' })
+    fetch(`/activities/${activity.id}`, { method: 'DELETE' })
     const newActivities = activities.filter( individualActivity => individualActivity !== activity)
     setActivities(newActivities)
   }
@@ -53,7 +53,7 @@ function App() {
   function handleAddMyActivities(activity) {
     const newMyActivities = activities.map(activity1 => activity1.id === activity.id ? activity : activity1);
     console.log(newMyActivities)
-      fetch(`http://localhost:3000/activities/${activity.id}`, {
+      fetch(`/activities/${activity.id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json'
@@ -67,7 +67,7 @@ function App() {
     function handleRemoveMyActivities(activity) {
       const newMyActivities = activities.filter (activity => activity.like === true)
       console.log(newMyActivities)
-        fetch(`http://localhost:3000/activities/${activity.id}`, {
+        fetch(`/activities/${activity.id}`, {
           method: 'PATCH',
           headers: {
             'Content-Type': 'application/json'
@@ -138,7 +138,7 @@ const filteredActivities = sortedActivities.filter((activity) => {
 
     // Clear Search -- This can maybe be moved down a level to ActivityContainer, or refactored because the fetch is repeated
     function resetFetch(){
-      fetch('http://localhost:3000/activities')
+      fetch('/activities')
       .then(response => response.json())
       .then(activities => setActivities(activities))
     }

@@ -10,7 +10,7 @@ function AddActivity({onAddToActivities, user}) {
 
     
     useEffect(() => {
-        fetch('http://localhost:3000/locations')
+        fetch('/locations')
         .then(response => response.json())
         .then((locations)=> setLocations(locations))
     }, [])
@@ -48,7 +48,7 @@ function AddActivity({onAddToActivities, user}) {
             location_id: activityForm.location_id,
             category_name: activityForm.category_name,
         }
-        fetch('http://localhost:3000/activities', {
+        fetch('/activities', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

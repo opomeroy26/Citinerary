@@ -11,7 +11,7 @@ function EditProfile({user, onUpdateUser}) {
 
     function handleSubmit(event){
         // event.preventDefault(); //commented out so it will push to profile page, but re-freshes page briefly
-        fetch(`http://localhost:3000/users/${user.id}`, {
+        fetch(`/users/${user.id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
