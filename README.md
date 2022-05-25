@@ -39,7 +39,7 @@ This application's frontend was created with HTML, JavaScript, React, CSS, and M
 
 Github: https://github.com/opomeroy26
 
-LinkedIn: https://www.linkedin.com/in/olivia-pomeroy-367578176/
+LinkedIn: https://www.linkedin.com/in/olivia-pomeroy/
 
 ### Hannah Glazier:
 
