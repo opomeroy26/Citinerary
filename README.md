@@ -37,14 +37,14 @@ This application's backend was built with Ruby on Rails. After cloning, the back
 This application's frontend was created with HTML, JavaScript, React, CSS, and Material UI. After cloning, the frontend can be launched by running `npm install --prefix client` to install the necessary dependencies and `npm start --prefix client` to launch the frontend server. 
 ![CitineraryComponents](https://user-images.githubusercontent.com/95717751/170567673-123a9035-cfa7-4f07-a667-770b7fb9a940.png)
 
-## Contributing to <project_name>
+## Contributing to Citinerary
 <!--- If your README is long or you have some specific process or steps you want contributors to follow, consider creating a separate CONTRIBUTING.md file--->
-To contribute to <project_name>, follow these steps:
+To contribute to Citinerary, follow these steps:
 
 1. Fork this repository.
 2. Create a branch: `git checkout -b <branch_name>`.
 3. Make your changes and commit them: `git commit -m '<commit_message>'`
-4. Push to the original branch: `git push origin <project_name>/<location>`
+4. Push to the original branch: `git push origin main`
 5. Create the pull request.
 
 Alternatively see the GitHub documentation on [creating a pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
