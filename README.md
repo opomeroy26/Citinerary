@@ -29,9 +29,12 @@ Users are able to create an account and login from an initial sign in page. Once
 
 ## Backend
 This application's backend was built with Ruby on Rails. After cloning, the backend can be launched by runing `rails db:migrate` to set up the database, `rails db:seed` to seed some initial seed data, and `bundle install` to install the necessary dependencies. Finally, you can run `rails s` to launch the server.
+<img width="620" alt="Screen Shot 2022-05-26 at 12 58 25" src="https://user-images.githubusercontent.com/95717751/170567882-50c5710d-4ad4-4f10-860b-d69a0d37d757.png">
 
 ## Frontend
 This application's frontend was created with HTML, JavaScript, React, CSS, and Material UI. After cloning, the frontend can be launched by running `npm install --prefix client` to install the necessary dependencies and `npm start --prefix client` to launch the frontend server. 
+![CitineraryComponents](https://user-images.githubusercontent.com/95717751/170567673-123a9035-cfa7-4f07-a667-770b7fb9a940.png)
+
 
 ## Created By:
 
