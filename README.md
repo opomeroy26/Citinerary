@@ -5,6 +5,7 @@ Citinerary is an application that allows users to view various activities in dif
 Users are able to create an account and login from an initial sign in page. Once they are signed in, users are able to view activities in different cities and filter these by default, activity name, duration, and city. Activities can also be searched by name. Users are also able to add activities to their own activity list. Users have their own profile page and are also able to add personalized activities to the site. 
 
 ## Walkthrough Snapshots
+[Video Walkthrough](https://www.loom.com/share/7ba3bb02e9164e7583826d4d950e9175)
 
 ## Signin:
 ![screenshot of signin page](./client/public/Images/Signin.png)
@@ -29,7 +30,8 @@ Users are able to create an account and login from an initial sign in page. Once
 
 ## Backend
 This application's backend was built with Ruby on Rails. After cloning, the backend can be launched by runing `rails db:migrate` to set up the database, `rails db:seed` to seed some initial seed data, and `bundle install` to install the necessary dependencies. Finally, you can run `rails s` to launch the server.
-<img width="620" alt="Screen Shot 2022-05-26 at 12 58 25" src="https://user-images.githubusercontent.com/95717751/170567882-50c5710d-4ad4-4f10-860b-d69a0d37d757.png">
+<img width="599" alt="Screen Shot 2022-05-26 at 12 59 04" src="https://user-images.githubusercontent.com/95717751/170568130-097fe6a5-8b1e-4d62-a0ec-0f43ea9baf75.png">
+
 
 ## Frontend
 This application's frontend was created with HTML, JavaScript, React, CSS, and Material UI. After cloning, the frontend can be launched by running `npm install --prefix client` to install the necessary dependencies and `npm start --prefix client` to launch the frontend server. 
