@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-    skip_before_action :authorize, only: [ :create, :update] 
+    # skip_before_action :authorize, only: [ :create, :update] 
+    skip_before_action :authorize, only: :create 
     # by putting :show, stops the not authorized message but logs you out at refresh page 
 
     #Gets list of Users
@@ -16,8 +17,13 @@ class UsersController < ApplicationController
     end
 
     #Handles Staying LoggedIn
+    # def show 
+    #     render json: @current_user
+    # end
+
     def show 
-        render json: @current_user
+        user = User.find_by(id: session[:user_id])
+        render json: user, status: :ok
     end
 
     #PATCH /users/:id
